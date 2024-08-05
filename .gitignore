@@ -1,0 +1,11 @@
+*
+!nvim/
+!nvim/**
+!macos/
+!macos/**
+!tmux/
+!tmux/**
+
+!.gitignore
+
+
