@@ -5,6 +5,12 @@
 !macos/**
 !tmux/
 !tmux/**
+!aerospace
+!aerospace/**
+!ghostty/
+!ghostty/**
+!fish/
+!fish/**
 
 
 

@@ -1,0 +1,7 @@
+font-size = 20
+theme = MaterialDesignColors
+font-family = Operator Mono Lig
+shell-integration = fish
+keybind = cmd+shift+space=toggle_quick_terminal
+macos-titlebar-style = hidden
+
