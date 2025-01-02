@@ -13,7 +13,7 @@ return {
         ["tsconfig.json"] = { glyph = "", hl = "MiniIconsAzure" },
         ["tsconfig.build.json"] = { glyph = "", hl = "MiniIconsAzure" },
         ["yarn.lock"] = { glyph = "", hl = "MiniIconsBlue" },
-        ["init.lua"] = { glyph = "", hl = "MiniIconsAzure" },
+        ["init.lua"] = { glyph = "", hl = "MiniIconsAzure" }, -- enable init.lua icon
       },
       filetype = {
         dotenv = { glyph = "", hl = "MiniIconsYellow" },

@@ -1,8 +1,11 @@
+LazyVim.terminal.setup("bash")
 vim.g.mapleader = " "
+-- vim.g.snacks_animate = false
+-- vim.env.PATH = "/opt/homebrew/bin:" .. vim.env.PATH
+-- vim.g.lazyvim_blink_main = true
 
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
-
 vim.opt.number = true
 
 vim.opt.title = true
@@ -15,7 +18,11 @@ vim.opt.cmdheight = 1
 vim.opt.laststatus = 3
 vim.opt.expandtab = true
 vim.opt.scrolloff = 10
-vim.opt.shell = "fish"
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
+-- vim.o.shellcmdflag = "-i"
+-- vim.opt.shell = "/bin/bash" -- A fix for neovim been slow for fish users
+-- -- vim.opt.shell = "/opt/homebrew/bin/bash" -- A fix for neovim been slow for fish users
+-- vim.opt.shell = "/opt/homebrew/bin/fish"
 vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
 vim.opt.inccommand = "split"
 vim.opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
@@ -30,7 +37,13 @@ vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.opt.splitbelow = true -- Put new windows below current
 vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
-vim.opt.mouse = ""
+vim.opt.mouse = "a"
+vim.opt.mousescroll = "ver:1,hor:4"
+
+vim.opt.listchars:remove("tab:-")
+
+-- list 모드 비활성화 (탭, 공백 등이 안 보이게)
+vim.opt.list = false
 
 -- folding configurtion
 
@@ -41,7 +54,7 @@ vim.opt.mouse = ""
 vim.cmd([[let &t_Cs = "\e[4:3m"]])
 vim.cmd([[let &t_Ce = "\e[4:0m"]])
 
--- quit commant typo
+-- quit command typo
 vim.cmd([[command! Qa :qa]])
 vim.cmd([[command! Q :q]])
 vim.cmd([[command! W :w]])
@@ -56,3 +69,17 @@ vim.cmd([[au BufNewFile,BufRead Podfile setf ruby]])
 if vim.fn.has("nvim-0.8") == 1 then
   vim.opt.cmdheight = 0
 end
+
+vim.filetype.add({
+  extension = {
+    env = "dotenv",
+  },
+  filename = {
+    [".env"] = "dotenv",
+    ["env"] = "dotenv",
+  },
+  pattern = {
+    ["[jt]sconfig.*.json"] = "jsonc",
+    ["%.env%.[%w_.-]+"] = "dotenv",
+  },
+})

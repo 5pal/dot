@@ -10,11 +10,8 @@ return {
         "shellcheck",
         "shfmt",
         "tailwindcss-language-server",
-        "typescript-language-server",
         "css-lsp",
         "pyright", -- python lsp
-        "glslls",
-        "glsl_analyzer",
       })
     end,
   },
@@ -22,54 +19,50 @@ return {
   -- lsp servers
   {
     "neovim/nvim-lspconfig",
-    init = function()
-      local keys = require("lazyvim.plugins.lsp.keymaps").get()
-      keys[#keys + 1] = {
-        "gd",
-        function()
-          -- DO NOT RESUSE WINDOW
-          require("telescope.builtin").lsp_definitions({ reuse_win = false })
-        end,
-        desc = "Goto Definition",
-        has = "definition",
-      }
-    end,
+    -- dependencies = { "saghen/blink.cmp" },
+    ---@class PluginLspOpts
     opts = {
       inlay_hints = { enabled = false },
       ---@type lspconfig.options
       servers = {
-        cssls = {},
-        tailwindcss = {
-          root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
-          end,
+        glslls = {
+          cmd = { "/Users/kimyeonsu/.local/share/nvim/mason/bin/glslls" },
+          filetypes = { "glsl", "vert", "frag", "geom", "shader" }, --
+          root_dir = require("lspconfig").util.root_pattern(".git", vim.fn.getcwd()),
+          -- cmd = { "/Users/kimyeonsu/.local/share/nvim/mason/bin/glsl_analyzer" },
+          -- filetypes = { "glsl", "vert", "frag", "geom" },
         },
+        ts_ls = {},
         tsserver = {
-          root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
-          end,
-          single_file_support = false,
+          enabled = false,
+        },
+        vtsls = {
+          enabled = false,
+        },
+        --css: Unknown rule @tailwind @apply
+        cssls = {
           settings = {
-            typescript = {
-              inlayHints = {
-                includeInlayParameterNameHints = "literal",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = false,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
+            css = {
+              lint = {
+                unknownAtRules = "ignore",
               },
             },
-            javascript = {
-              inlayHints = {
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayEnumMemberValueHints = true,
+          },
+        },
+        tailwindcss = {
+          -- enable lsp server when git initialized
+          root_dir = function(...)
+            return require("lspconfig.util").root_pattern(".git")(...)
+          end,
+          settings = {
+            tailwindCSS = {
+              experimental = {
+                classRegex = {
+                  { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                  { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+                  { "cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                  { "([a-zA-Z0-9\\-:]+)" },
+                },
               },
             },
           },
@@ -164,7 +157,51 @@ return {
           },
         },
       },
-      setup = {},
+      setup = {
+        tsserver = function()
+          -- disable tsserver
+          return true
+        end,
+        ts_ls = function()
+          -- disable tsserver
+          return true
+        end,
+      },
     },
+  },
+  {
+    "pmizio/typescript-tools.nvim",
+    event = "BufReadPre",
+    ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    config = function()
+      require("typescript-tools").setup({
+        settings = {
+          separate_diagnostic_server = true,
+          expose_as_code_action = "all",
+          tsserver_plugins = {
+            -- for TypeScript v4.9+
+            -- "@styled/typescript-styled-plugin"
+            "typescript-styled-plugin",
+          },
+          tsserver_max_memory = "auto",
+          complete_function_calls = true,
+          include_completions_with_insert_text = true,
+          tsserver_file_preferences = {
+            includeInlayParameterNameHints = "all", -- "none" | "literals" | "all";
+            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+            includeCompletionsForModuleExports = true,
+            quotePreference = "auto",
+            -- autoImportFileExcludePatterns = { "node_modules/*", ".git/*" },
+          },
+        },
+      })
+    end,
   },
 }
