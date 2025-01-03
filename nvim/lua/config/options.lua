@@ -39,6 +39,7 @@ vim.opt.splitright = true -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
 vim.opt.mouse = "a"
 vim.opt.mousescroll = "ver:1,hor:4"
+vim.opt.fixeol = false
 
 vim.opt.listchars:remove("tab:-")
 

@@ -218,7 +218,7 @@ run = 'move-node-to-workspace 2'
 # KakaoTalk for mac
 [[on-window-detected]]
 if.app-id = 'com.kakao.KakaoTalkMac'
-run = ["layout tiling", "move-node-to-workspace T"]
+run = ["layout floating", "move-node-to-workspace T"]
 
 # Ghostty
 [[on-window-detected]]
