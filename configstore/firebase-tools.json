@@ -1,0 +1,38 @@
+{
+	"motd": {
+		"cloudBuildErrorAfter": 1594252800000,
+		"cloudBuildWarnAfter": 1590019200000,
+		"defaultNode10After": 1594252800000,
+		"minVersion": "3.0.5",
+		"node8DeploysDisabledAfter": 1613390400000,
+		"node8RuntimeDisabledAfter": 1615809600000,
+		"node8WarnAfter": 1600128000000,
+		"fetched": 1685362256039
+	},
+	"usage": true,
+	"analytics-uuid": "c4cc0fa7-ef38-466d-949c-540359c0c256",
+	"user": {
+		"iss": "accounts.google.com",
+		"azp": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"aud": "563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com",
+		"sub": "100539823390660074313",
+		"email": "how2logout@gmail.com",
+		"email_verified": true,
+		"at_hash": "cg1jCJ5A0AYry2-d15W4GQ",
+		"iat": 1683615324,
+		"exp": 1683618924
+	},
+	"tokens": {
+		"expires_at": 1685437952774,
+		"refresh_token": "1//0eMWsKEMbfEjICgYIARAAGA4SNwF-L9Ir1WRovk1mn5Wk_K5O9b28VLfvl6StS0jrNy9UlzKbV7Lqa1268OXEqkuJ9Q3zYtqohtM",
+		"scopes": [],
+		"access_token": "ya29.a0AWY7CknWO7VE2ro0ldg2JiN7Arj8k9M6Xxmb9_mVPvyCT-Frre5sFgGSjUN86DhajQQTPttjj6EYrIlpM4_UjOmvngh-Qmut6wDUd3g51UofmBo6gWLWJU2beB6x377SiJCbZ77n1olMt6wcXDmGqPTSek2_viQ8Y01w-waCgYKAZQSARASFQG1tDrpDtCF47rShtyyqfOtj5q2lA0173",
+		"expires_in": 3599,
+		"scope": "openid https://www.googleapis.com/auth/firebase https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/userinfo.email",
+		"token_type": "Bearer",
+		"id_token": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjYwODNkZDU5ODE2NzNmNjYxZmRlOWRhZTY0NmI2ZjAzODBhMDE0NWMiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiNTYzNTg0MzM1ODY5LWZncmhnbWQ0N2JxbmVraWo1aThiNXByMDNobzg0OWU2LmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTAwNTM5ODIzMzkwNjYwMDc0MzEzIiwiZW1haWwiOiJob3cybG9nb3V0QGdtYWlsLmNvbSIsImVtYWlsX3ZlcmlmaWVkIjp0cnVlLCJhdF9oYXNoIjoiV3BZeGlDMFoxczFpR1c2TWk2QlV4dyIsImlhdCI6MTY4NTQzNDM1MywiZXhwIjoxNjg1NDM3OTUzfQ.py-PSc5A-LNmEQAOHwsxw7fo3KWG3m0G-_v8azYuJFuC3PHqCK8sBhtdjQexxiUEa9IRST4axO3zddV5WMRSl6mpHE8RUqJydqGh7szbF30F8xVq7IAN5Es09-JnIQLyYPzaMtaHGEAoE2IDSN_0G7M2EAgejv27SCNZlAndJyUMUYk0HHZrdtiyRGX0OdkQeBDGgjEgPGligNAYeT-rOJM9y2xbtVvsxBzCPOk0TTVcXfAkijFLZm9ulNE78D2vZk9el0zQOGWdYJo713aSyHgomUrhT73gdFAI5RcNZiJeLgCniGcvy0WV1fjbg-VWZRNg_V5yF97sOOEA714ajg"
+	},
+	"activeProjects": {
+		"/Users/kimyeonsu/Documents/tiktok_clone": "tiktok-kisyam"
+	}
+}

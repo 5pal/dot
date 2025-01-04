@@ -25,13 +25,7 @@ return {
       inlay_hints = { enabled = false },
       ---@type lspconfig.options
       servers = {
-        glslls = {
-          cmd = { "/Users/kimyeonsu/.local/share/nvim/mason/bin/glslls" },
-          filetypes = { "glsl", "vert", "frag", "geom", "shader" }, --
-          root_dir = require("lspconfig").util.root_pattern(".git", vim.fn.getcwd()),
-          -- cmd = { "/Users/kimyeonsu/.local/share/nvim/mason/bin/glsl_analyzer" },
-          -- filetypes = { "glsl", "vert", "frag", "geom" },
-        },
+        glslls = {},
         ts_ls = {},
         tsserver = {
           enabled = false,
@@ -68,13 +62,7 @@ return {
           },
         },
         html = {},
-        yamlls = {
-          settings = {
-            yaml = {
-              keyOrdering = false,
-            },
-          },
-        },
+        yamlls = {},
         lua_ls = {
           -- enabled = false,
           single_file_support = true,

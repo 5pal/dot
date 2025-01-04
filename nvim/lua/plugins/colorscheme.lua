@@ -393,7 +393,7 @@ return {
       vim.api.nvim_set_hl(0, "TSRepeat", { fg = "#f2594b", italic = true })
       vim.api.nvim_set_hl(0, "TSInclude", { fg = "#f2594b", italic = true })
       vim.api.nvim_set_hl(0, "TSKeywordReturn", { fg = "#f2594b", italic = true })
-      vim.api.nvim_set_hl(0, "TSString", { fg = "#98c379", italic = true })
+      vim.api.nvim_set_hl(0, "TSString", { fg = "#98c379", italic = false })
       vim.api.nvim_set_hl(0, "TSParameter", { fg = "#d3869b", italic = true })
       vim.api.nvim_set_hl(0, "TSVariable", { bold = false, italic = false }) -- 일반 변수 스타일 수정
       vim.api.nvim_set_hl(0, "YellowItalic", { italic = false, fg = "#e9b143", bold = false })

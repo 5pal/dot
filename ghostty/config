@@ -29,8 +29,8 @@ clipboard-write = allow
 
 # Keybindings
 keybind = cmd+shift+space=toggle_quick_terminal
-keybind = ctrl+z=close_surface
-keybind = ctrl+l=new_split:right
+# keybind = ctrl+z=close_surface
+# keybind = ctrl+l=new_split:right
 
 # Always show ghostty as the title
 title = ghostty

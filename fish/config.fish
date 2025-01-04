@@ -2,11 +2,11 @@ set -x LANG en_US.UTF-8
 set -gx TERM xterm-256color
 set encoding UTF-8
 set -U fish_user_paths /opt/homebrew/bin $fish_user_paths
-# theme
-# set -g fish_prompt_pwd_dir_length 1
-# set -g theme_display_user yes
-# set -g theme_hide_hostname no
-# set -g theme_hostname always
+# # theme
+# # set -g fish_prompt_pwd_dir_length 1
+# # set -g theme_display_user yes
+# # set -g theme_hide_hostname no
+# # set -g theme_hostname always
 
 # Cursor styles
 set -gx fish_vi_force_cursor 1
@@ -15,7 +15,7 @@ set -gx fish_cursor_insert line blink
 set -gx fish_cursor_visual block
 set -gx fish_cursor_replace_one underscore
 
-# Fish syntax highlighting
+# # Fish syntax highlighting
 set -g fish_color_autosuggestion 555 brblack
 set -g fish_color_cancel -r
 set -g fish_color_command --bold
@@ -37,9 +37,12 @@ set -g fish_color_search_match bryellow '--background=brblack'
 set -g fish_color_selection white --bold '--background=brblack'
 set -g fish_color_user brgreen
 set -g fish_color_valid_path --underline
-
+#
+# set -g fish_key_bindings fish_default_key_bindings
 set -g fish_key_bindings fish_user_key_bindings
-set fish_bind_mode insert
+set -g fish_key_bindings fish_vi_key_bindings
+# set fish_bind_mode insert
+
 
 # aliases
 alias brew="env PATH=(string replace (pyenv root)/shims '' \"\$PATH\") brew"
@@ -53,26 +56,28 @@ alias g git
 alias python=python3
 alias pip=pip3
 command -qv nvim && alias vim nvim
-
+#
 set -gx EDITOR nvim
-
+#
 set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
-
-# NodeJS
+#
+# # NodeJS
 set -gx PATH node_modules/.bin $PATH
 set -x PATH $HOME/.scripts $PATH
-
-# Go
+#
+# # Go
 set -g GOPATH $HOME/go
 set -gx PATH $GOPATH/bin $PATH
-
-# ~/.config/fish/config.fish
+#
+# set -gx NVM_DIR (brew --prefix nvm)
+# # # ~/.config/fish/config.fish
 function nvm
     bass source $HOME/.nvm/nvm.sh --no-use ';' nvm $argv
 end
-
+#
+#
 switch (uname)
     case Darwin
         source (dirname (status --current-filename))/config-osx.fish
@@ -81,7 +86,7 @@ switch (uname)
     case '*'
         source (dirname (status --current-filename))/config-windows.fish
 end
-
+#
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
