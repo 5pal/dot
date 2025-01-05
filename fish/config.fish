@@ -43,6 +43,12 @@ set -g fish_key_bindings fish_user_key_bindings
 set -g fish_key_bindings fish_vi_key_bindings
 # set fish_bind_mode insert
 
+function fish_greeting
+    echo Hello Opal
+    echo "Welcome to fish, the friendly interactive shell"
+end
+
+set -U fish_greeting
 
 # aliases
 alias brew="env PATH=(string replace (pyenv root)/shims '' \"\$PATH\") brew"

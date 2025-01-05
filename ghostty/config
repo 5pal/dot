@@ -5,6 +5,13 @@ font-size = 20
 # theme = MaterialDesignColors
 theme = catppuccin-macchiato
 
+background-opacity = 0.9
+
+# adjust command line
+adjust-underline-position = 6
+adjust-underline-thickness = 2 
+
+
 # Font Family
 font-family = Operator Mono Lig
 # font-family = Maple Mono NF
