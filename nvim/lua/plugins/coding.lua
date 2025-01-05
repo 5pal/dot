@@ -29,4 +29,10 @@ return {
       })
     end,
   },
+
+  -- Disable mini.pairs
+  {
+    "echasnovski/mini.pairs",
+    enabled = false,
+  },
 }

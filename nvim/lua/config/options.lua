@@ -3,6 +3,7 @@ vim.g.mapleader = " "
 -- vim.g.snacks_animate = false
 -- vim.env.PATH = "/opt/homebrew/bin:" .. vim.env.PATH
 -- vim.g.lazyvim_blink_main = true
+vim.g.minipairs_disable = true
 
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"

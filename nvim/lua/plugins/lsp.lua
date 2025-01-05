@@ -12,6 +12,8 @@ return {
         "tailwindcss-language-server",
         "css-lsp",
         "pyright", -- python lsp
+        "java-test",
+        "java-debug-adapter",
       })
     end,
   },
@@ -25,6 +27,31 @@ return {
       inlay_hints = { enabled = false },
       ---@type lspconfig.options
       servers = {
+        eslint = {
+          settings = {
+            -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
+            workingDirectories = { mode = "auto" },
+          },
+        },
+        jdtls = {},
+        -- emmet_ls = {
+        --   filetypes = {
+        --     "astro",
+        --     "css",
+        --     "eruby",
+        --     "handlebars",
+        --     "html",
+        --     "htmldjango",
+        --     "javascriptreact",
+        --     "less",
+        --     "pug",
+        --     "sass",
+        --     "scss",
+        --     "svelte",
+        --     "typescriptreact",
+        --     "vue",
+        --   },
+        -- },
         glslls = {},
         ts_ls = {},
         tsserver = {

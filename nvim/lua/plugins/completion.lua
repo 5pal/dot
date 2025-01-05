@@ -75,7 +75,6 @@ return {
         }),
         -- sources for autocompletion
         sources = cmp.config.sources({
-          -- { name = "copilot" },
           {
             name = "nvim_lsp",
             entry_filter = function(entry)
@@ -83,10 +82,11 @@ return {
               return kind ~= "Text" -- "Text" 타입은 제외
             end,
           },
+          { name = "path" },
           { name = "nvim_lua" },
           { name = "luasnip" },
           { name = "buffer" },
-          { name = "path" },
+          { name = "copilot" },
           { name = "calc" },
           { name = "emoji" },
           { name = "treesitter" },
@@ -106,7 +106,8 @@ return {
               nvim_lua = "[LUA]",
               luasnip = "[LuaSnip]",
               buffer = "[Buffer]",
-              -- path = "[PATH]",
+              path = "[PATH]",
+              copilot = "[Copilot]",
             },
           }),
         },
