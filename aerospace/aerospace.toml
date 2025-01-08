@@ -212,9 +212,14 @@ run = 'layout tiling'
 if.window-title-regex-substring = 'Picture-in-Picture'
 run = 'layout floating'
 
-# IDE / Code editor
+# IDE / Kitty
 [[on-window-detected]]
 if.app-id = 'net.kovidgoyal.kitty'
+run = 'move-node-to-workspace 2'
+
+# IDE / Ghostty
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
 run = 'move-node-to-workspace 2'
 
 # KakaoTalk for mac
@@ -236,6 +241,11 @@ run = ["layout floating", "move-node-to-workspace 4"]
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
 run = ["layout tiling", "move-node-to-workspace S"]
+
+# Message
+[[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS'
+run = ["layout floating", "move-node-to-workspace M"]
 
 # Discord
 [[on-window-detected]]
