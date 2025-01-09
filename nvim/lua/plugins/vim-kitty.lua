@@ -1,4 +1,4 @@
--- Enable lsp for kitty config
+-- Enable syntax highlighting for kitty config
 return {
   "fladson/vim-kitty",
 }

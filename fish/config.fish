@@ -79,11 +79,11 @@ set -gx PATH $GOPATH/bin $PATH
 #
 # set -gx NVM_DIR (brew --prefix nvm)
 # # # ~/.config/fish/config.fish
-function nvm
-    bass source $HOME/.nvm/nvm.sh --no-use ';' nvm $argv
-end
-#
-#
+
+# function nvm
+#     bass source $HOME/.nvm/nvm.sh --no-use ';' nvm $argv
+# end
+
 switch (uname)
     case Darwin
         source (dirname (status --current-filename))/config-osx.fish
