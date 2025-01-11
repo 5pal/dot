@@ -383,7 +383,6 @@ return {
 
       -- vim.g.gruvbox_material_colors_override = { bg0 = "#16181A" } -- #0e1010
       -- vim.g.gruvbox_material_better_performance = 1
-
       vim.cmd.colorscheme("gruvbox-material")
 
       -- enable italic or bold
@@ -397,6 +396,7 @@ return {
       vim.api.nvim_set_hl(0, "TSParameter", { fg = "#d3869b", italic = true })
       vim.api.nvim_set_hl(0, "TSVariable", { bold = false, italic = false }) -- 일반 변수 스타일 수정
       vim.api.nvim_set_hl(0, "YellowItalic", { italic = false, fg = "#e9b143", bold = false })
+      vim.api.nvim_set_hl(0, "TSConstant", { italic = false, fg = "#d3869b", bold = false }) -- boolean color for false
 
       -- vim.api.nvim_set_hl(0, "TSVariable", { link = "" })
       -- vim.api.nvim_set_hl(0, "TSConstant", { link = "" })
@@ -459,23 +459,23 @@ return {
       -- vim.cmd.colorscheme("vesper")
     end,
   },
-  {
-    "scottmckendry/cyberdream.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("cyberdream").setup({
-        transparent = true,
-        italic_comments = false,
-        hide_fillchars = false,
-        borderless_telescope = true,
-        terminal_colors = true,
-        cache = true,
-
-        -- vim.api.nvim_command("colorscheme cyberdream")
-      })
-    end,
-  },
+  -- {
+  --   "scottmckendry/cyberdream.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require("cyberdream").setup({
+  --       transparent = true,
+  --       italic_comments = false,
+  --       hide_fillchars = false,
+  --       borderless_telescope = true,
+  --       terminal_colors = true,
+  --       cache = true,
+  --
+  --       -- vim.api.nvim_command("colorscheme cyberdream")
+  --     })
+  --   end,
+  -- },
 
   -- {
   --   "wtfox/jellybeans.nvim",

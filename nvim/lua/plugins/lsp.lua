@@ -73,7 +73,13 @@ return {
         tailwindcss = {
           -- enable lsp server when git initialized
           root_dir = function(...)
-            return require("lspconfig.util").root_pattern(".git")(...)
+            -- return require("lspconfig.util").root_pattern(".git")(...)
+            return require("lspconfig.util").root_pattern(
+              "tailwind.config.cjs",
+              "tailwind.config.js",
+              "tailwind.config.ts",
+              "postcss.config.js"
+            )(...)
           end,
           settings = {
             tailwindCSS = {
