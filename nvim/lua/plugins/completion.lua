@@ -45,7 +45,8 @@ return {
         --   completion = cmp.config.window.bordered(),
         --   documentation = cmp.config.window.bordered(),
         -- },
-        completion = { completeopt = "menu,menuone,noinsert" },
+        completion = { completeopt = "menu,noselect,menuone,noinsert" },
+        preselect = cmp.PreselectMode.None,
         mapping = cmp.mapping.preset.insert({
           ["<C-p>"] = cmp.mapping.select_prev_item(), -- previous suggestion
           ["<C-n>"] = cmp.mapping.select_next_item(), -- next suggestion
@@ -71,7 +72,7 @@ return {
           ["<C-d>"] = cmp.mapping.scroll_docs(4), -- scroll down preview
           ["<C-Space>"] = cmp.mapping.complete({}), -- show completion suggestions
           ["<C-c>"] = cmp.mapping.abort(), -- close completion window
-          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- select suggestion
+          ["<CR>"] = cmp.mapping.confirm({ select = false }), -- select suggestion
         }),
         -- sources for autocompletion
         sources = cmp.config.sources({
