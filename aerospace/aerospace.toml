@@ -192,8 +192,8 @@ check-further-callbacks = true
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser' # Arc
-run = 'layout floating'
+if.app-id = 'company.thebrowser.Browser'            # Arc
+run = ["layout tiling", "move-node-to-workspace 1"]
 
 [[on-window-detected]]
 if.app-id = 'com.brave.Browser' # Zen Browser
@@ -202,6 +202,10 @@ run = 'layout tiling'
 [[on-window-detected]]
 if.app-id = 'company.thebrowser.Browser' # Brave
 run = 'layout tiling'
+
+[[on-window-detected]]
+if.app-id = 'net.shinyfrog.bear'                      # Bear
+run = ["layout floating", "move-node-to-workspace o"]
 
 [[on-window-detected]]
 if.app-id = 'company.google.Chrome' # Chrome
@@ -227,14 +231,14 @@ run = 'move-node-to-workspace 2'
 if.app-id = 'com.kakao.KakaoTalkMac'
 run = ["layout floating", "move-node-to-workspace T"]
 
-# Ghostty
-[[on-window-detected]]
-if.app-id = "com.mitchellh.ghostty"
-run = ["layout floating"]
-
 # Finder
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
+run = ["layout floating", "move-node-to-workspace 4"]
+
+# Preview
+[[on-window-detected]]
+if.app-id = 'com.apple.Preview'
 run = ["layout floating", "move-node-to-workspace 4"]
 
 # Slack
@@ -245,7 +249,7 @@ run = ["layout tiling", "move-node-to-workspace S"]
 # Message
 [[on-window-detected]]
 if.app-id = 'com.apple.MobileSMS'
-run = ["layout floating", "move-node-to-workspace M"]
+run = ["layout tiling", "move-node-to-workspace M"]
 
 # Discord
 [[on-window-detected]]
