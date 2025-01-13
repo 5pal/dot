@@ -397,6 +397,7 @@ return {
       vim.api.nvim_set_hl(0, "TSVariable", { bold = false, italic = false }) -- 일반 변수 스타일 수정
       vim.api.nvim_set_hl(0, "YellowItalic", { italic = false, fg = "#e9b143", bold = false })
       vim.api.nvim_set_hl(0, "TSConstant", { italic = false, fg = "#d3869b", bold = false }) -- boolean color for false
+      vim.api.nvim_set_hl(0, "TSConstBuiltin", { italic = false, bold = false })
 
       -- vim.api.nvim_set_hl(0, "TSVariable", { link = "" })
       -- vim.api.nvim_set_hl(0, "TSConstant", { link = "" })

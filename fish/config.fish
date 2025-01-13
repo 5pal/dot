@@ -1,6 +1,12 @@
-set -x LANG en_US.UTF-8
+set -Ux LANG en_US.UTF-8
 set -gx TERM xterm-256color
+set -Ux LANGUAGE en_US.UTF-8
+set -Ux LC_ALL en_US.UTF-8
+
 set encoding UTF-8
+# set -Ux LANG ko_KR.UTF-8
+# set -Ux LC_ALL ko_KR.UTF-8
+# set -Ux LANGUAGE ko_KR.UTF-8
 set -U fish_user_paths /opt/homebrew/bin $fish_user_paths
 # # theme
 # # set -g fish_prompt_pwd_dir_length 1
