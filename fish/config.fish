@@ -130,3 +130,9 @@ set -x PATH $PATH $ANDROID_HOME/emulator $ANDROID_HOME/platform-tools
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# pnpm end
+set -gx PNPM_HOME /Users/kimyeonsu/Library/pnpm
+if not string match -q -- $PNPM_HOME $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
+end
