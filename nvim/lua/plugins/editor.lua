@@ -81,6 +81,7 @@ return {
         function()
           local builtin = require("telescope.builtin")
           builtin.live_grep({
+            file_ignore_patterns = { "node_modules" },
             additional_args = { "--hidden" },
           })
         end,

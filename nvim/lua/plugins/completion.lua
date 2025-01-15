@@ -41,10 +41,10 @@ return {
             luasnip.lsp_expand(args.body)
           end,
         },
-        -- window = {
-        --   completion = cmp.config.window.bordered(),
-        --   documentation = cmp.config.window.bordered(),
-        -- },
+        window = {
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
+        },
         completion = { completeopt = "menu,noselect,menuone,noinsert" },
         preselect = cmp.PreselectMode.None,
         mapping = cmp.mapping.preset.insert({
@@ -83,34 +83,36 @@ return {
               return kind ~= "Text" -- "Text" 타입은 제외
             end,
           },
-          { name = "path" },
-          { name = "nvim_lua" },
-          { name = "luasnip" },
           { name = "buffer" },
-          -- { name = "copilot" },
-          { name = "calc" },
+          { name = "path" },
+          -- { name = "nvim_lua" },
+          { name = "luasnip" },
+          -- { name = "calc" },
           { name = "emoji" },
-          { name = "treesitter" },
-          { name = "crates" },
-          { name = "tmux" },
           { name = "nvim-lsp-signature-help" },
         }),
         -- Enable pictogram icons for lsp/autocompletion
         formatting = {
           expandable_indicator = true,
-          format = lspkind.cmp_format({
-            mode = "symbol_text",
-            maxwidth = 50,
-            ellipsis_char = "...",
-            menu = {
-              nvim_lsp = "[LSP]",
-              nvim_lua = "[LUA]",
-              luasnip = "[LuaSnip]",
-              buffer = "[Buffer]",
-              path = "[PATH]",
-              -- copilot = "[Copilot]",
-            },
-          }),
+          format = function(entry, item)
+            local color_item = require("nvim-highlight-colors").format(entry, { kind = item.kind })
+            item = lspkind.cmp_format({
+              mode = "symbol_text",
+              maxwidth = 50,
+              ellipsis_char = "...",
+              menu = {
+                nvim_lsp = "[LSP]",
+                buffer = "[Buffer]",
+                path = "[PATH]",
+                luasnip = "[LuaSnip]",
+              },
+            })(entry, item)
+            if color_item.abbr_hl_group then
+              item.kind_hl_group = color_item.abbr_hl_group
+              item.kind = color_item.abbr
+            end
+            return item
+          end,
         },
         experimental = {
           ghost_text = true,

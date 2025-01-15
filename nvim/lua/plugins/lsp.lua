@@ -14,6 +14,7 @@ return {
         "pyright", -- python lsp
         "java-test",
         "java-debug-adapter",
+        "emmet-language-server",
       })
     end,
   },
@@ -34,24 +35,6 @@ return {
           },
         },
         jdtls = {},
-        -- emmet_ls = {
-        --   filetypes = {
-        --     "astro",
-        --     "css",
-        --     "eruby",
-        --     "handlebars",
-        --     "html",
-        --     "htmldjango",
-        --     "javascriptreact",
-        --     "less",
-        --     "pug",
-        --     "sass",
-        --     "scss",
-        --     "svelte",
-        --     "typescriptreact",
-        --     "vue",
-        --   },
-        -- },
         glslls = {},
         ts_ls = {},
         tsserver = {
