@@ -5,7 +5,7 @@ font-size = 20
 # theme = MaterialDesignColors
 theme = catppuccin-macchiato
 
-background-opacity = 0.9
+background-opacity = 0.8
 
 # adjust command line
 adjust-underline-position = 6
@@ -14,8 +14,8 @@ adjust-underline-thickness = 2
 
 # Font Family
 # font-family = Operator Mono Lig
-font-family = JetBrainsMono Nerd Font Mono
-# font-family = Maple Mono NF
+# font-family = JetBrainsMono Nerd Font Mono
+font-family = Maple Mono NF
 # font-family = MonoLisa
 # font-style = Regualr
 # font-style-italic = Regular Italic

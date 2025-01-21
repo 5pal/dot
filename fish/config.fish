@@ -50,8 +50,7 @@ set -g fish_key_bindings fish_vi_key_bindings
 # set fish_bind_mode insert
 
 function fish_greeting
-    echo Hello Opal
-    echo "Welcome to fish, the friendly interactive shell"
+    echo "Hello, Opal"
 end
 
 set -U fish_greeting
