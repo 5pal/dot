@@ -221,6 +221,11 @@ run = 'layout floating'
 if.app-id = 'net.kovidgoyal.kitty'
 run = 'move-node-to-workspace 2'
 
+# IDE / WebStorm
+[[on-window-detected]]
+if.app-id = 'com.jetbrains.WebStorm'
+run = 'move-node-to-workspace W'
+
 # IDE / Ghostty
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'

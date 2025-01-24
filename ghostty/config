@@ -15,7 +15,8 @@ adjust-underline-thickness = 2
 # Font Family
 # font-family = Operator Mono Lig
 # font-family = JetBrainsMono Nerd Font Mono
-font-family = Maple Mono NF
+font-family = PlemolJP Console NF
+# font-family = Maple Mono NF
 # font-family = MonoLisa
 # font-style = Regualr
 # font-style-italic = Regular Italic
@@ -27,6 +28,7 @@ unfocused-split-opacity = 0.97
 
 # Shell integrations
 shell-integration = fish
+quit-after-last-window-closed = true
 
 # Cursor style
 cursor-style-blink = true

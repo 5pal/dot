@@ -4,15 +4,13 @@ set -Ux LANGUAGE en_US.UTF-8
 set -Ux LC_ALL en_US.UTF-8
 
 set encoding UTF-8
-# set -Ux LANG ko_KR.UTF-8
-# set -Ux LC_ALL ko_KR.UTF-8
-# set -Ux LANGUAGE ko_KR.UTF-8
 set -U fish_user_paths /opt/homebrew/bin $fish_user_paths
-# # theme
-# # set -g fish_prompt_pwd_dir_length 1
-# # set -g theme_display_user yes
-# # set -g theme_hide_hostname no
-# # set -g theme_hostname always
+
+# theme
+# set -g fish_prompt_pwd_dir_length 1
+# set -g theme_display_user yes
+# set -g theme_hide_hostname no
+# set -g theme_hostname always
 
 # Cursor styles
 set -gx fish_vi_force_cursor 1
@@ -50,7 +48,8 @@ set -g fish_key_bindings fish_vi_key_bindings
 # set fish_bind_mode insert
 
 function fish_greeting
-    echo "Hello, Opal"
+    echo Hello $USER
+    echo The time is (set_color yellow; date +%T; set_color normal) and this machine is called $hostname
 end
 
 set -U fish_greeting
@@ -110,7 +109,8 @@ end
 
 # Pvenv
 pyenv init - | source
-# status --is-interactive; and pyenv virtualenv-init - | source
+
+#status --is-interactive; and pyenv virtualenv-init - | source
 
 # Direnv
 direnv hook fish | source
@@ -126,7 +126,7 @@ set -x JAVA_HOME /Library/Java/JavaVirtualMachines/zulu-17.jdk/Contents/Home
 set -x ANDROID_HOME $HOME/Library/Android/sdk
 set -x PATH $PATH $ANDROID_HOME/emulator $ANDROID_HOME/platform-tools
 
-# bun
+#bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
 
