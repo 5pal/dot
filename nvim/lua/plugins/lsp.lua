@@ -34,15 +34,43 @@ return {
             workingDirectories = { mode = "auto" },
           },
         },
-        jdtls = {},
+        -- jdtls = {},
         glslls = {},
-        ts_ls = {},
-        tsserver = {
-          enabled = false,
+        ts_ls = {
+          settings = {
+            maxTsServerMemory = 12288,
+            typescript = {
+              inlayHints = {
+                includeInlayEnumMemberValueHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayParameterNameHints = "all",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+              },
+            },
+            javascript = {
+              inlayHints = {
+                includeInlayEnumMemberValueHints = true,
+                includeInlayFunctionLikeReturnTypeHints = true,
+                includeInlayFunctionParameterTypeHints = true,
+                includeInlayParameterNameHints = "all",
+                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+                includeInlayPropertyDeclarationTypeHints = true,
+                includeInlayVariableTypeHints = true,
+                includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+              },
+            },
+          },
         },
-        vtsls = {
-          enabled = false,
-        },
+        -- tsserver = {
+        --   enabled = false,
+        -- },
+        -- vtsls = {
+        --   enabled = false,
+        -- },
         --css: Unknown rule @tailwind @apply
         cssls = {
           settings = {
@@ -161,51 +189,41 @@ return {
           },
         },
       },
-      setup = {
-        tsserver = function()
-          -- disable tsserver
-          return true
-        end,
-        ts_ls = function()
-          -- disable tsserver
-          return true
-        end,
-      },
     },
   },
-  {
-    "pmizio/typescript-tools.nvim",
-    event = "BufReadPre",
-    ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
-    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-    config = function()
-      require("typescript-tools").setup({
-        settings = {
-          separate_diagnostic_server = true,
-          expose_as_code_action = "all",
-          tsserver_plugins = {
-            -- for TypeScript v4.9+
-            -- "@styled/typescript-styled-plugin"
-            "typescript-styled-plugin",
-          },
-          tsserver_max_memory = "auto",
-          complete_function_calls = true,
-          include_completions_with_insert_text = true,
-          tsserver_file_preferences = {
-            includeInlayParameterNameHints = "all", -- "none" | "literals" | "all";
-            includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-            includeInlayFunctionParameterTypeHints = true,
-            includeInlayVariableTypeHints = true,
-            includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-            includeInlayPropertyDeclarationTypeHints = true,
-            includeInlayFunctionLikeReturnTypeHints = true,
-            includeInlayEnumMemberValueHints = true,
-            includeCompletionsForModuleExports = true,
-            quotePreference = "auto",
-            -- autoImportFileExcludePatterns = { "node_modules/*", ".git/*" },
-          },
-        },
-      })
-    end,
-  },
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   event = "BufReadPre",
+  --   ft = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+  --   dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+  --   config = function()
+  --     require("typescript-tools").setup({
+  --       settings = {
+  --         separate_diagnostic_server = true,
+  --         expose_as_code_action = "all",
+  --         tsserver_plugins = {
+  --           -- for TypeScript v4.9+
+  --           -- "@styled/typescript-styled-plugin"
+  --           "typescript-styled-plugin",
+  --         },
+  --         tsserver_max_memory = "auto",
+  --         complete_function_calls = true,
+  --         include_completions_with_insert_text = true,
+  --         tsserver_file_preferences = {
+  --           includeInlayParameterNameHints = "all", -- "none" | "literals" | "all";
+  --           includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+  --           includeInlayFunctionParameterTypeHints = true,
+  --           includeInlayVariableTypeHints = true,
+  --           includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+  --           includeInlayPropertyDeclarationTypeHints = true,
+  --           includeInlayFunctionLikeReturnTypeHints = true,
+  --           includeInlayEnumMemberValueHints = true,
+  --           includeCompletionsForModuleExports = true,
+  --           quotePreference = "auto",
+  --           -- autoImportFileExcludePatterns = { "node_modules/*", ".git/*" },
+  --         },
+  --       },
+  --     })
+  --   end,
+  -- },
 }
