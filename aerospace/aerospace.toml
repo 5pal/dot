@@ -205,7 +205,7 @@ run = 'layout tiling'
 
 [[on-window-detected]]
 if.app-id = 'net.shinyfrog.bear'                      # Bear
-run = ["layout floating", "move-node-to-workspace o"]
+run = ["layout floating", "move-node-to-workspace O"]
 
 [[on-window-detected]]
 if.app-id = 'company.google.Chrome' # Chrome
