@@ -13,8 +13,8 @@ adjust-underline-thickness = 2
 
 
 # Font Family
-font-family = Operator Mono Lig
-# font-family = JetBrainsMono Nerd Font Mono
+# font-family = Operator Mono Lig
+font-family = JetBrainsMono Nerd Font Mono
 # font-family = PlemolJP Console NF
 # font-family = Maple Mono NF
 # font-family = MonoLisa
