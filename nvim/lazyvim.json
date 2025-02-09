@@ -6,9 +6,10 @@
     "lazyvim.plugins.extras.lang.toml",
     "lazyvim.plugins.extras.lang.typescript"
   ],
+  "install_version": 7,
   "news": {
     "NEWS.md": "10960",
     "doc/news.txt": "24450"
   },
-  "version": 7
+  "version": 8
 }
