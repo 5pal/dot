@@ -5,23 +5,20 @@ font-size = 20
 # theme = MaterialDesignColors
 theme = catppuccin-macchiato
 
-background-opacity = 0.8
+background-opacity = 1.0
 
 # adjust command line
 adjust-underline-position = 6
 adjust-underline-thickness = 2 
 
-
 # Font Family
-# font-family = Operator Mono Lig
-font-family = JetBrainsMono Nerd Font Mono
+font-family = Operator Mono Lig
+# font-family = Berkeley Mono Trial Regular
+# font-family = JetBrainsMono Nerd Font Mono
 # font-family = PlemolJP Console NF
 # font-family = Maple Mono NF
+# font-family = Martian Mono
 # font-family = MonoLisa
-# font-style = Regualr
-# font-style-italic = Regular Italic
-# font-style-bold = Bold
-# font-style-bold-italic = Bocl Italic
 
 # Opacity of split windows
 unfocused-split-opacity = 0.97
