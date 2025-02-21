@@ -160,6 +160,8 @@ alt-shift-o = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-
 alt-shift-z = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window Z && sketchybar --trigger space_windows_change'
 
 alt-shift-f = 'fullscreen'
+alt-x = 'close'
+
 # To Handle floating or tiling 
 alt-shift-space = 'layout floating tiling'
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
