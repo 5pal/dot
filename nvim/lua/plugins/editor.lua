@@ -224,32 +224,40 @@ return {
       },
     },
   },
-  -- {
-  --   "saghen/blink.cmp",
-  --   lazy = false,
-  --   version = "v0.*",
-  --   opts = {
-  --     keymap = { preset = "default" },
-  --     appearance = {
-  --       use_nvim_cmp_as_default = true, -- Set nvim_cmp as the default completion plugin
-  --       nerd_font_variant = "mono", -- Use a single style of Nerd Font
-  --     },
-  --     completion = {
-  --       menu = {
-  --         winblend = vim.o.pumblend,
-  --       },
-  --       documentation = {
-  --         winblend = vim.o.pumblend,
-  --       },
-  --     },
-  --     signature = {
-  --       window = {
-  --         winblend = vim.o.pumblend,
-  --       },
-  --     },
-  --     sources = {
-  --       default = { "lsp", "path", "snippets", "buffer" }, -- Specify the sources for autocompletion information
-  --     },
-  --   },
-  -- },
+  {
+    "kazhala/close-buffers.nvim",
+    event = "VeryLazy",
+    keys = {
+      {
+        "<leader>th",
+        function()
+          require("close_buffers").delete({ type = "hidden" })
+        end,
+        "Close Hidden Buffers",
+      },
+      {
+        "<leader>tu",
+        function()
+          require("close_buffers").delete({ type = "nameless" })
+        end,
+        "Close Nameless Buffers",
+      },
+    },
+  },
+
+  {
+    "saghen/blink.cmp",
+    opts = {
+      completion = {
+        menu = {
+          winblend = vim.o.pumblend,
+        },
+      },
+      signature = {
+        window = {
+          winblend = vim.o.pumblend,
+        },
+      },
+    },
+  },
 }

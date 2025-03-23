@@ -103,8 +103,9 @@ return {
               menu = {
                 nvim_lsp = "[LSP]",
                 buffer = "[Buffer]",
-                path = "[PATH]",
-                luasnip = "[LuaSnip]",
+                path = "[Path]",
+                luasnip = "[Snippet]",
+                nvim_lsp_signature_help = "[Signature]",
               },
             })(entry, item)
             if color_item.abbr_hl_group then
