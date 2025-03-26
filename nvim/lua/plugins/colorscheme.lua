@@ -367,6 +367,40 @@ return {
     end,
   },
   {
+    "dgox16/oldworld.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      -- lua/config/oldworld.lua
+      require("oldworld").setup({
+        terminal_colors = true, -- enable terminal colors
+        variant = "default", -- default, oled, cooler
+        styles = { -- You can pass the style using the format: style = true
+          comments = {}, -- style for comments
+          keywords = {
+            italic = true,
+            bold = true,
+          }, -- style for keywords
+          identifiers = {}, -- style for identifiers
+          functions = {}, -- style for functions
+          variables = {}, -- style for variables
+          booleans = {}, -- style for booleans
+        },
+        integrations = {
+          navic = true,
+          alpha = false,
+          rainbow_delimiters = false,
+        },
+        highlight_overrides = {
+          Normal = { bg = "NONE" },
+          NormalNC = { bg = "NONE" },
+          CursorLine = { bg = "#222128" },
+        },
+      })
+      vim.cmd.colorscheme("oldworld")
+    end,
+  },
+  {
     "sainnhe/gruvbox-material",
     enabled = true,
     priority = 1000,
@@ -383,7 +417,7 @@ return {
 
       -- vim.g.gruvbox_material_colors_override = { bg0 = "#16181A" } -- #0e1010
       -- vim.g.gruvbox_material_better_performance = 1
-      vim.cmd.colorscheme("gruvbox-material")
+      -- vim.cmd.colorscheme("gruvbox-material")
 
       -- enable italic or bold
       vim.api.nvim_set_hl(0, "TSKeyword", { fg = "#f2594b", italic = true })

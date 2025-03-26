@@ -12,11 +12,11 @@ adjust-underline-position = 6
 adjust-underline-thickness = 2 
 
 # Font Family
-font-family = Operator Mono Lig
+# font-family = Operator Mono Lig
 # font-family = Berkeley Mono Trial Regular
 # font-family = JetBrainsMono Nerd Font Mono
 # font-family = PlemolJP Console NF
-# font-family = Maple Mono NF
+font-family = Maple Mono NF
 # font-family = Martian Mono
 # font-family = MonoLisa
 
