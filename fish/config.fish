@@ -61,6 +61,7 @@ alias ls "ls -p -G"
 alias la "ls -A"
 alias ll "ls -l"
 alias lla "ll -A"
+alias c=clear
 alias lg=lazygit
 alias g git
 alias python=python3
@@ -88,6 +89,9 @@ set -gx PATH $GOPATH/bin $PATH
 #     bass source $HOME/.nvm/nvm.sh --no-use ';' nvm $argv
 # end
 
+# fnm
+fnm env --use-on-cd | source
+
 switch (uname)
     case Darwin
         source (dirname (status --current-filename))/config-osx.fish
@@ -105,7 +109,6 @@ end
 if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
     . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
 end
-
 
 # Pvenv
 pyenv init - | source

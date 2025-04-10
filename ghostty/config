@@ -16,7 +16,8 @@ adjust-underline-thickness = 2
 # font-family = Berkeley Mono Trial Regular
 # font-family = JetBrainsMono Nerd Font Mono
 # font-family = PlemolJP Console NF
-font-family = Maple Mono NF
+# font-family = Maple Mono NF
+font-family = Berkeley Mono
 # font-family = Martian Mono
 # font-family = MonoLisa
 
