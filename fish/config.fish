@@ -100,20 +100,20 @@ switch (uname)
     case '*'
         source (dirname (status --current-filename))/config-windows.fish
 end
-#
+
 set LOCAL_CONFIG (dirname (status --current-filename))/config-local.fish
 if test -f $LOCAL_CONFIG
     source $LOCAL_CONFIG
 end
 
 if test -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
-    . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
+    source '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish'
 end
 
 # Pvenv
 pyenv init - | source
 
-#status --is-interactive; and pyenv virtualenv-init - | source
+# status --is-interactive; and pyenv virtualenv-init - | source
 
 # Direnv
 direnv hook fish | source

@@ -224,6 +224,8 @@ return {
       },
     },
   },
+  -- :BWipeout! all
+  -- :BWipeout other
   {
     "kazhala/close-buffers.nvim",
     event = "VeryLazy",
