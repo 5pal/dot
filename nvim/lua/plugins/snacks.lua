@@ -26,11 +26,11 @@ return {
         },
       },
       terminal = {},
-      notifier = {
-        enabled = true,
-        timeout = 3000,
-        style = "fancy",
-      },
+      -- notifier = {
+      --   enabled = true,
+      --   timeout = 3000,
+      --   style = "fancy",
+      -- },
       quickfile = { enabled = true },
       statuscolumn = { enabled = true },
       words = { enabled = true },

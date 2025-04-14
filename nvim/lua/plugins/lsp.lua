@@ -14,7 +14,7 @@ return {
         "pyright", -- python lsp
         "java-test",
         "java-debug-adapter",
-        "emmet-language-server",
+        -- "emmet-language-server",
       })
     end,
   },
@@ -34,8 +34,6 @@ return {
             workingDirectories = { mode = "auto" },
           },
         },
-        -- jdtls = {},
-        glslls = {},
         ts_ls = {
           settings = {
             maxTsServerMemory = 12288,

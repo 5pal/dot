@@ -397,7 +397,7 @@ return {
           CursorLine = { bg = "#222128" },
         },
       })
-      vim.cmd.colorscheme("oldworld")
+      -- vim.cmd.colorscheme("oldworld")
     end,
   },
   {
@@ -417,7 +417,7 @@ return {
 
       -- vim.g.gruvbox_material_colors_override = { bg0 = "#16181A" } -- #0e1010
       -- vim.g.gruvbox_material_better_performance = 1
-      -- vim.cmd.colorscheme("gruvbox-material")
+      vim.cmd.colorscheme("gruvbox-material")
 
       -- enable italic or bold
       vim.api.nvim_set_hl(0, "TSKeyword", { fg = "#f2594b", italic = true })

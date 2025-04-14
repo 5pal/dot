@@ -1,6 +1,9 @@
 # Font size
 font-size = 20
 
+# Shaders
+# custom-shader = shaders/just-snow.glsl
+
 # Ghostty theme
 # theme = MaterialDesignColors
 theme = catppuccin-macchiato
