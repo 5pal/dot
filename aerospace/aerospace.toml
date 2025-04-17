@@ -160,6 +160,8 @@ alt-shift-o = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-
 alt-shift-z = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window Z && sketchybar --trigger space_windows_change'
 
 alt-shift-f = 'fullscreen'
+
+# close a window from the aerospace area.
 alt-x = 'close'
 
 # To Handle floating or tiling 
@@ -193,24 +195,20 @@ alt-shift-l = ['join-with right', 'mode main']
 check-further-callbacks = true
 run = 'layout floating'
 
-[[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser'            # Arc
-run = ["layout tiling", "move-node-to-workspace 1"]
+# [[on-window-detected]]
+# if.app-id = 'company.thebrowser.Browser'            # Arc
+# run = ["layout tiling", "move-node-to-workspace 1"]
 
 [[on-window-detected]]
 if.app-id = 'com.brave.Browser' # Zen Browser
 run = 'layout tiling'
 
-[[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser' # Brave
-run = 'layout tiling'
+# [[on-window-detected]]
+# if.app-id = 'net.shinyfrog.bear'                      # Bear
+# run = ["layout floating", "move-node-to-workspace O"]
 
 [[on-window-detected]]
-if.app-id = 'net.shinyfrog.bear'                      # Bear
-run = ["layout floating", "move-node-to-workspace O"]
-
-[[on-window-detected]]
-if.app-id = 'company.google.Chrome' # Chrome
+if.app-id = 'com.google.Chrome' # Chrome
 run = 'layout tiling'
 
 [[on-window-detected]]
@@ -224,39 +222,39 @@ run = 'layout floating'
 # run = 'move-node-to-workspace 2'
 
 # IDE / WebStorm
-[[on-window-detected]]
-if.app-id = 'com.jetbrains.WebStorm'
-run = 'move-node-to-workspace W'
+# [[on-window-detected]]
+# if.app-id = 'com.jetbrains.WebStorm'
+# run = 'move-node-to-workspace W'
 
 # IDE / Ghostty
-[[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run = 'layout floating'
+# [[on-window-detected]]
+# if.app-id = 'com.mitchellh.ghostty'
+# run = 'layout floating'
 
 # KakaoTalk for mac
-[[on-window-detected]]
-if.app-id = 'com.kakao.KakaoTalkMac'
-run = ["layout floating", "move-node-to-workspace T"]
+# [[on-window-detected]]
+# if.app-id = 'com.kakao.KakaoTalkMac'
+# run = ["layout floating", "move-node-to-workspace T"]
 
 # Finder
-[[on-window-detected]]
-if.app-id = 'com.apple.finder'
-run = ["layout floating", "move-node-to-workspace 4"]
+# [[on-window-detected]]
+# if.app-id = 'com.apple.finder'
+# run = ["layout floating", "move-node-to-workspace 4"]
 
 # Preview
-[[on-window-detected]]
-if.app-id = 'com.apple.Preview'
-run = ["layout floating", "move-node-to-workspace 4"]
+# [[on-window-detected]]
+# if.app-id = 'com.apple.Preview'
+# run = ["layout floating", "move-node-to-workspace 4"]
 
 # Slack
-[[on-window-detected]]
-if.app-id = 'com.tinyspeck.slackmacgap'
-run = ["layout tiling", "move-node-to-workspace S"]
+# [[on-window-detected]]
+# if.app-id = 'com.tinyspeck.slackmacgap'
+# run = ["layout tiling", "move-node-to-workspace S"]
 
 # Message
-[[on-window-detected]]
-if.app-id = 'com.apple.MobileSMS'
-run = ["layout tiling", "move-node-to-workspace M"]
+# [[on-window-detected]]
+# if.app-id = 'com.apple.MobileSMS'
+# run = ["layout tiling", "move-node-to-workspace M"]
 
 # Discord
 # [[on-window-detected]]

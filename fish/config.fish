@@ -54,6 +54,8 @@ end
 
 set -U fish_greeting
 
+set -Ux PATH /opt/homebrew/bin /usr/local/bin $PATH
+
 # aliases
 alias brew="env PATH=(string replace (pyenv root)/shims '' \"\$PATH\") brew"
 alias ls "ls -p -G"
