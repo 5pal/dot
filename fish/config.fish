@@ -91,6 +91,20 @@ set -gx PATH $GOPATH/bin $PATH
 #     bass source $HOME/.nvm/nvm.sh --no-use ';' nvm $argv
 # end
 
+function work
+    timer 60m; and terminal-notifier -message Pomodoro \
+        -title 'Work Timer is up! Take a Break 😊' \
+        # -appIcon ~/Pictures/pumpkin.png \
+        -sound Crystal
+end
+
+function rest
+    timer 10m; and terminal-notifier -message Pomodoro \
+        -title 'Break is over! Get back to work 😬' \
+        # -appIcon ~/Pictures/pumpkin.png \
+        -sound Crystal
+end
+
 # fnm
 fnm env --use-on-cd | source
 
@@ -140,3 +154,6 @@ set -gx PNPM_HOME /Users/kimyeonsu/Library/pnpm
 if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
+
+# Added by Windsurf
+fish_add_path /Users/kimyeonsu/.codeium/windsurf/bin
