@@ -28,12 +28,12 @@ after-startup-command = [
 exec-on-workspace-change = [
   '/bin/bash',
   '-c',
-  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
+  'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE PREV_WORKSPACE=$AEROSPACE_PREV_WORKSPACE',
 ]
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
-enable-normalization-opposite-orientation-for-nested-containers = false
+enable-normalization-opposite-orientation-for-nested-containers = true
 
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
@@ -136,28 +136,22 @@ alt-1 = 'workspace 1'
 alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-4 = 'workspace 4'
-alt-w = 'workspace W'
-alt-c = 'workspace C'
-alt-d = 'workspace D'
-alt-m = 'workspace M'
-alt-s = 'workspace S'
-alt-t = 'workspace T'
-alt-o = 'workspace O'
-alt-z = 'workspace Z'
+alt-5 = 'workspace 5'
+alt-6 = 'workspace 6'
+alt-7 = 'workspace 7'
+alt-8 = 'workspace 8'
+alt-9 = 'workspace 9'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
 alt-shift-1 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 1 && sketchybar --trigger space_windows_change'
 alt-shift-2 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 2 && sketchybar --trigger space_windows_change'
 alt-shift-3 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 3 && sketchybar --trigger space_windows_change'
 alt-shift-4 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 4 && sketchybar --trigger space_windows_change'
-alt-shift-w = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window W && sketchybar --trigger space_windows_change'
-alt-shift-c = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window C && sketchybar --trigger space_windows_change'
-alt-shift-d = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window D && sketchybar --trigger space_windows_change'
-alt-shift-m = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window M && sketchybar --trigger space_windows_change'
-alt-shift-s = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window S && sketchybar --trigger space_windows_change'
-alt-shift-t = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window T && sketchybar --trigger space_windows_change'
-alt-shift-o = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window O && sketchybar --trigger space_windows_change'
-alt-shift-z = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window Z && sketchybar --trigger space_windows_change'
+alt-shift-5 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 5 && sketchybar --trigger space_windows_change'
+alt-shift-6 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 6 && sketchybar --trigger space_windows_change'
+alt-shift-7 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 7 && sketchybar --trigger space_windows_change'
+alt-shift-8 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 8 && sketchybar --trigger space_windows_change'
+alt-shift-9 = 'exec-and-forget aerospace move-node-to-workspace --focus-follows-window 9 && sketchybar --trigger space_windows_change'
 
 alt-shift-f = 'fullscreen'
 
@@ -195,73 +189,27 @@ alt-shift-l = ['join-with right', 'mode main']
 check-further-callbacks = true
 run = 'layout floating'
 
-# [[on-window-detected]]
-# if.app-id = 'company.thebrowser.Browser'            # Arc
-# run = ["layout tiling", "move-node-to-workspace 1"]
-
 [[on-window-detected]]
-if.app-id = 'com.brave.Browser' # Zen Browser
-run = 'layout tiling'
-
-# [[on-window-detected]]
-# if.app-id = 'net.shinyfrog.bear'                      # Bear
-# run = ["layout floating", "move-node-to-workspace O"]
-
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome' # Chrome
-run = 'layout tiling'
-
-[[on-window-detected]]
-# Run Picture-In-Picture in floating window rather than occupying existing space (since it doesn't make sense otherwise)
-if.window-title-regex-substring = 'Picture-in-Picture'
-run = 'layout floating'
-
-# IDE / Kitty
-# [[on-window-detected]]
-# if.app-id = 'net.kovidgoyal.kitty'
-# run = 'move-node-to-workspace 2'
-
-# IDE / WebStorm
-[[on-window-detected]]
-if.app-id = 'com.jetbrains.WebStorm'
-run = 'move-node-to-workspace W'
-
-# IDE / Ghostty
-# [[on-window-detected]]
-# if.app-id = 'com.mitchellh.ghostty'
-# run = 'layout floating'
+if.app-id = 'com.google.Chrome'
+run = ['move-node-to-workspace 1']
 
 # KakaoTalk for mac
 [[on-window-detected]]
 if.app-id = 'com.kakao.KakaoTalkMac'
-run = ["layout floating", "move-node-to-workspace T"]
+run = ['move-node-to-workspace 7']
 
-# Finder
-# [[on-window-detected]]
-# if.app-id = 'com.apple.finder'
-# run = ["layout floating", "move-node-to-workspace 4"]
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run = ['move-node-to-workspace 3']
 
-# Preview
-# [[on-window-detected]]
-# if.app-id = 'com.apple.Preview'
-# run = ["layout floating", "move-node-to-workspace 4"]
-
-# Slack
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
-run = ["layout tiling", "move-node-to-workspace S"]
+run = ['move-node-to-workspace 4']
 
-# Message
-[[on-window-detected]]
-if.app-id = 'com.apple.MobileSMS'
-run = ["layout tiling", "move-node-to-workspace M"]
-
-# Visual Studio Code
-[[on-window-detected]]
-if.app-id = 'com.microsoft.VSCode'
-run = ["layout tiling", "move-node-to-workspace C"]
-
-# Discord
 [[on-window-detected]]
 if.app-id = 'com.hnc.Discord'
-run = ["layout tiling", "move-node-to-workspace D"]
+run = ['move-node-to-workspace 4']
+
+[[on-window-detected]]
+if.app-id = 'com.spotify.client'
+run = ['move-node-to-workspace 5']
