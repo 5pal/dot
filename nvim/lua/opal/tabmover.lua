@@ -20,4 +20,6 @@ function M.prev_tab()
   end
 end
 
+function M.firtst_tab() end
+
 return M
