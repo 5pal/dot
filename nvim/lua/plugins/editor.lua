@@ -211,19 +211,28 @@ return {
   },
   {
     "saghen/blink.cmp",
-    opts = {
-      completion = {
-        menu = {
-          winblend = vim.o.pumblend,
-        },
-      },
-      signature = {
-        window = {
-          winblend = vim.o.pumblend,
-        },
-      },
-    },
+    event = "InsertEnter",
+    version = "*",
+    config = function()
+      require("config.blink")
+    end,
+    opts_extend = { "sources.default" },
   },
+  -- {
+  --   "saghen/blink.cmp",
+  --   opts = {
+  --     completion = {
+  --       menu = {
+  --         winblend = vim.o.pumblend,
+  --       },
+  --     },
+  --     signature = {
+  --       window = {
+  --         winblend = vim.o.pumblend,
+  --       },
+  --     },
+  --   },
+  -- },
   -- :BWipeout! all
   -- :BWipeout other
   {
