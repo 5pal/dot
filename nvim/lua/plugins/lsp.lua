@@ -1,190 +1,78 @@
 return {
-  -- tools
   {
-    "williamboman/mason.nvim",
-    opts = function(_, opts)
-      vim.list_extend(opts.ensure_installed, {
-        "stylua",
-        "selene",
-        "luacheck",
-        "shellcheck",
-        "shfmt",
-        "tailwindcss-language-server",
-        "css-lsp",
-        "pyright", -- python lsp
-        "java-test",
-        "java-debug-adapter",
-        -- "emmet-language-server",
-      })
+    "mrcjkb/rustaceanvim",
+    version = "^4",
+    lazy = false,
+    config = function()
+      vim.g.rustaceanvim = {
+        server = {
+          settings = {
+            ["rust-analyzer"] = {
+              inlayHints = {
+                bindingModeHints = {
+                  enable = false,
+                },
+                chainingHints = {
+                  enable = true,
+                },
+                closingBraceHints = {
+                  enable = true,
+                  minLines = 25,
+                },
+                closureReturnTypeHints = {
+                  enable = "never",
+                },
+                lifetimeElisionHints = {
+                  enable = "never",
+                  useParameterNames = false,
+                },
+                maxLength = 25,
+                parameterHints = {
+                  enable = true,
+                },
+                reborrowHints = {
+                  enable = "never",
+                },
+                renderColons = true,
+                typeHints = {
+                  enable = true,
+                  hideClosureInitialization = false,
+                  hideNamedConstructor = false,
+                },
+              },
+            },
+          },
+        },
+      }
     end,
   },
-
-  -- lsp servers
   {
-    "neovim/nvim-lspconfig",
-    -- dependencies = { "saghen/blink.cmp" },
-    ---@class PluginLspOpts
+    "pmizio/typescript-tools.nvim",
+    event = "BufReadPre",
+    dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
     opts = {
-      inlay_hints = { enabled = false },
-      ---@type lspconfig.options
-      servers = {
-        eslint = {
-          settings = {
-            -- helps eslint find the eslintrc when it's placed in a subfolder instead of the cwd root
-            workingDirectories = { mode = "auto" },
-          },
+      settings = {
+
+        tsserver_plugins = {
+          -- for TypeScript v4.9+
+          -- "@styled/typescript-styled-plugin"
+          "typescript-styled-plugin",
         },
-        ts_ls = {
-          settings = {
-            maxTsServerMemory = 12288,
-            typescript = {
-              inlayHints = {
-                includeInlayEnumMemberValueHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-              },
-            },
-            javascript = {
-              inlayHints = {
-                includeInlayEnumMemberValueHints = true,
-                includeInlayFunctionLikeReturnTypeHints = true,
-                includeInlayFunctionParameterTypeHints = true,
-                includeInlayParameterNameHints = "all",
-                includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-                includeInlayPropertyDeclarationTypeHints = true,
-                includeInlayVariableTypeHints = true,
-                includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-              },
-            },
-          },
+
+        jsx_close_tag = {
+          enable = true,
+          filetypes = { "javascriptreact", "typescriptreact" },
         },
-        -- tsserver = {
-        --   enabled = false,
-        -- },
-        -- vtsls = {
-        --   enabled = false,
-        -- },
-        --css: Unknown rule @tailwind @apply
-        cssls = {
-          settings = {
-            css = {
-              lint = {
-                unknownAtRules = "ignore",
-              },
-            },
-          },
-        },
-        tailwindcss = {
-          -- enable lsp server when git initialized
-          root_dir = function(...)
-            -- return require("lspconfig.util").root_pattern(".git")(...)
-            return require("lspconfig.util").root_pattern(
-              "tailwind.config.cjs",
-              "tailwind.config.js",
-              "tailwind.config.ts",
-              "postcss.config.js"
-            )(...)
-          end,
-          settings = {
-            tailwindCSS = {
-              experimental = {
-                classRegex = {
-                  { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-                  { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
-                  { "cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
-                  { "([a-zA-Z0-9\\-:]+)" },
-                },
-              },
-            },
-          },
-        },
-        html = {},
-        yamlls = {},
-        lua_ls = {
-          -- enabled = false,
-          single_file_support = true,
-          settings = {
-            Lua = {
-              workspace = {
-                checkThirdParty = false,
-              },
-              completion = {
-                workspaceWord = true,
-                callSnippet = "Both",
-              },
-              misc = {
-                parameters = {
-                  -- "--log-level=trace",
-                },
-              },
-              hint = {
-                enable = true,
-                setType = false,
-                paramType = true,
-                paramName = "Disable",
-                semicolon = "Disable",
-                arrayIndex = "Disable",
-              },
-              doc = {
-                privateName = { "^_" },
-              },
-              type = {
-                castNumberToInteger = true,
-              },
-              diagnostics = {
-                disable = { "incomplete-signature-doc", "trailing-space" },
-                -- enable = false,
-                groupSeverity = {
-                  strong = "Warning",
-                  strict = "Warning",
-                },
-                groupFileStatus = {
-                  ["ambiguity"] = "Opened",
-                  ["await"] = "Opened",
-                  ["codestyle"] = "None",
-                  ["duplicate"] = "Opened",
-                  ["global"] = "Opened",
-                  ["luadoc"] = "Opened",
-                  ["redefined"] = "Opened",
-                  ["strict"] = "Opened",
-                  ["strong"] = "Opened",
-                  ["type-check"] = "Opened",
-                  ["unbalanced"] = "Opened",
-                  ["unused"] = "Opened",
-                },
-                unusedLocalExclude = { "_*" },
-              },
-              format = {
-                enable = false,
-                defaultConfig = {
-                  indent_style = "space",
-                  indent_size = "2",
-                  continuation_indent_size = "2",
-                },
-              },
-            },
-          },
-        },
-        pyright = {
-          settings = {
-            pyright = {
-              disableOrganizeImports = true,
-              disableTaggedHints = true,
-            },
-            python = {
-              analysis = {
-                diagnosticServerityOverrides = {
-                  -- https://github.com/microsoft/pyright/blob/main/docs/configuration.md#type-check-diagnostics-settings
-                  reportUndefindedVariable = "none",
-                },
-              },
-            },
-          },
+
+        tsserver_file_preferences = {
+          includeInlayParameterNameHints = "all",
+          includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+          includeInlayFunctionParameterTypeHints = true,
+          includeInlayVariableTypeHints = true,
+          includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+          includeInlayPropertyDeclarationTypeHints = true,
+          includeInlayFunctionLikeReturnTypeHints = true,
+          includeInlayEnumMemberValueHints = true,
         },
       },
     },

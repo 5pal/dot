@@ -2,6 +2,15 @@ return {
   { "nvim-treesitter/playground", cmd = "TSPlaygroundToggle" },
 
   {
+    "windwp/nvim-ts-autotag",
+    config = true,
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = {
       ensure_installed = {

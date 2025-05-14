@@ -209,30 +209,7 @@ return {
       require("telescope").load_extension("file_browser")
     end,
   },
-  {
-    "saghen/blink.cmp",
-    event = "InsertEnter",
-    version = "*",
-    config = function()
-      require("config.blink")
-    end,
-    opts_extend = { "sources.default" },
-  },
-  -- {
-  --   "saghen/blink.cmp",
-  --   opts = {
-  --     completion = {
-  --       menu = {
-  --         winblend = vim.o.pumblend,
-  --       },
-  --     },
-  --     signature = {
-  --       window = {
-  --         winblend = vim.o.pumblend,
-  --       },
-  --     },
-  --   },
-  -- },
+
   -- :BWipeout! all
   -- :BWipeout other
   {
@@ -252,22 +229,6 @@ return {
           require("close_buffers").delete({ type = "nameless" })
         end,
         "Close Nameless Buffers",
-      },
-    },
-  },
-
-  {
-    "saghen/blink.cmp",
-    opts = {
-      completion = {
-        menu = {
-          winblend = vim.o.pumblend,
-        },
-      },
-      signature = {
-        window = {
-          winblend = vim.o.pumblend,
-        },
       },
     },
   },

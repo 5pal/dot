@@ -1,0 +1,50 @@
+-- config/conform.lua
+return {
+  default_format_opts = {
+    timeout_ms = 3000,
+    async = false,
+    quiet = false,
+    lsp_format = "fallback",
+  },
+  -- format_on_save = {
+  --   lsp_fallback = true,
+  -- },
+  formatters_by_ft = {
+    lua = { "stylua" },
+    python = { "ruff_format", "usort" },
+    json = { "biome" },
+    javascript = { "biome" },
+    javascriptreact = { "biome" },
+    typescript = { "biome" },
+    typescriptreact = { "biome" },
+    markdown = { "prettier" },
+    html = { "prettier" },
+    css = { "biome" },
+    rust = { "rustfmt" },
+    sh = { "shfmt" },
+    typst = { "typstyle" },
+    -- php = { "pint" },
+    -- sql = { "sql_formatter" },
+  },
+
+  formatters = {
+    stylua = {
+      args = {
+        "--indent-type",
+        "Spaces",
+        "--search-parent-directories",
+        "--stdin-filepath",
+        "$FILENAME",
+        "-",
+      },
+    },
+    prettier = {
+      args = {
+        "--tab-width",
+        "4",
+        "--stdin-filepath",
+        "$FILENAME",
+      },
+    },
+  },
+}

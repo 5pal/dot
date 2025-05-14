@@ -7,7 +7,10 @@ require("bufferline").setup({
       Snacks.bufdelete.delete()
     end,
     diagnostics = "nvim_lsp",
-    always_show_bufferline = true,
+    mode = "tabs",
+    -- separator_style = "slant",
+    show_buffer_close_icons = false,
+    show_close_icon = false,
     buffer_close_icon = "",
     modified_icon = "",
     close_icon = "",

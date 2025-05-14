@@ -8,8 +8,8 @@ local opts = { noremap = true, silent = true }
 
 -- Do things without affecting the registers
 keymap.set("n", "x", '"_x')
-keymap.set("n", "<Leader>p", '"0p')
-keymap.set("n", "<Leader>P", '"0P')
+-- keymap.set("n", "<Leader>p", '"0p')
+-- keymap.set("n", "<Leader>P", '"0P')
 keymap.set("v", "<Leader>p", '"0p')
 keymap.set("n", "<Leader>c", '"_c')
 keymap.set("n", "<Leader>C", '"_C')
@@ -101,3 +101,13 @@ end)
 keymap.set("n", "<leader>i", function()
   require("craftzdog.lsp").toggleInlayHints()
 end)
+
+-- native snippets. only needed on < 0.11, as 0.11 creates these by default
+if vim.fn.has("nvim-0.11") == 0 then
+  vim.keymap.set("s", "<Tab>", function()
+    return vim.snippet.active({ direction = 1 }) and "<cmd>lua vim.snippet.jump(1)<cr>" or "<Tab>"
+  end, { expr = true, desc = "Jump Next" })
+  vim.keymap.set({ "i", "s" }, "<S-Tab>", function()
+    return vim.snippet.active({ direction = -1 }) and "<cmd>lua vim.snippet.jump(-1)<cr>" or "<S-Tab>"
+  end, { expr = true, desc = "Jump Previous" })
+end

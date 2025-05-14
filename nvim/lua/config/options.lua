@@ -2,11 +2,22 @@ LazyVim.terminal.setup("bash")
 vim.g.mapleader = " "
 -- vim.g.snacks_animate = false
 -- vim.env.PATH = "/opt/homebrew/bin:" .. vim.env.PATH
--- vim.g.lazyvim_blink_main = true
 vim.g.minipairs_disable = true
 vim.g.lazyvim_prettier_needs_config = true
 vim.g.lazyvim_picker = "telescope"
-vim.g.lazyvim_cmp = "blink.cmp"
+vim.g.autoformat = true -- Enable formatters on save.
+-- LazyVim picker to use.
+-- Can be one of: telescope, fzf
+-- Leave it to "auto" to automatically use the picker
+-- enabled with `:LazyExtras`
+vim.g.lazyvim_picker = "auto"
+
+-- LazyVim completion engine to use.
+-- Can be one of: nvim-cmp, blink.cmp
+-- Leave it to "auto" to automatically use the completion engine
+-- enabled with `:LazyExtras`
+vim.g.lazyvim_cmp = "auto"
+vim.g.ai_cmp = true
 
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
@@ -15,9 +26,11 @@ vim.opt.number = true
 vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
+vim.opt.smartcase = true -- Don't ignore case with capitals
 vim.opt.hlsearch = true
 vim.opt.backup = false
 vim.opt.showcmd = true
+vim.opt.showtabline = 2
 vim.opt.cmdheight = 1
 vim.opt.laststatus = 3
 vim.opt.expandtab = true
@@ -30,7 +43,6 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.backupskip = { "/tmp/*", "/private/tmp/*" }
 vim.opt.inccommand = "split"
 vim.opt.ignorecase = true -- Case insensitive searching UNLESS /C or capital in search
-vim.opt.smarttab = true
 vim.opt.breakindent = true
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
