@@ -25,6 +25,15 @@ return {
       }
     end,
   },
+  -- <leader>fm
+  {
+    "echasnovski/mini.files",
+    opts = {
+      windows = {
+        preview = false,
+      },
+    },
+  },
 
   {
     "karb94/neoscroll.nvim",

@@ -352,7 +352,7 @@ function icon_map() {
   "Mattermost")
     icon_result=":mattermost:"
     ;;
-  "Messages" | "信息" | "Nachrichten")
+  "Messages" | "信息" | "Nachrichten" | "메시지")
     icon_result=":messages:"
     ;;
   "Messenger")

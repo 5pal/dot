@@ -27,6 +27,7 @@ vim.opt.title = true
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 vim.opt.smartcase = true -- Don't ignore case with capitals
+vim.opt.smarttab = true
 vim.opt.hlsearch = true
 vim.opt.backup = false
 vim.opt.showcmd = true
