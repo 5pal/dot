@@ -35,16 +35,12 @@ return {
       statuscolumn = { enabled = true },
       words = { enabled = true },
       styles = {
-        input = {
-          relative = true,
-        },
+        input = {},
         lazygit = {
-          relative = true,
           width = 0,
           height = 0,
         },
         notification = {
-          relative = true,
           -- Wrap notifications
           wo = { wrap = true },
         },

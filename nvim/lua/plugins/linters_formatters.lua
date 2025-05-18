@@ -3,7 +3,7 @@ return {
     "stevearc/conform.nvim",
     event = { "BufReadPre" },
     opts = function()
-      return require("config.conform") -- ✅이건 return 값이어야 함!
+      return require("config.conform")
     end,
   },
 
