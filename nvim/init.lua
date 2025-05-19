@@ -1,25 +1,70 @@
-if vim.loader then
-  vim.loader.enable()
-end
+-- Global variables.
+-- vim.g.projects_dir = vim.env.HOME .. '/Code'
+-- vim.g.personal_projects_dir = vim.g.projects_dir .. '/Personal'
+-- vim.g.work_projects_dir = '/Volumes/git'
 
-_G.dd = function(...)
-  require("util.debug").dump(...)
-end
-vim.print = _G.dd
+-- Set my colorscheme.
+vim.cmd.colorscheme 'miss-dracula'
 
-vim.filetype.add({
-  extension = {
-    vert = "glsl",
-    tesc = "glsl",
-    tese = "glsl",
-    frag = "glsl",
-    geom = "glsl",
-    comp = "glsl",
-  },
+-- Install Lazy.
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not vim.uv.fs_stat(lazypath) then
+    vim.fn.system {
+        'git',
+        'clone',
+        '--filter=blob:none',
+        'https://github.com/folke/lazy.nvim.git',
+        '--branch=stable',
+        lazypath,
+    }
+end
+vim.opt.rtp = vim.opt.rtp ^ lazypath
+
+---@type LazySpec
+local plugins = 'plugins'
+
+-- General setup and goodies (order matters here).
+require 'settings'
+require 'keymaps'
+require 'commands'
+require 'autocmds'
+require 'statusline'
+require 'winbar'
+require 'marks'
+require 'lsp'
+
+-- Configure plugins.
+require('lazy').setup(plugins, {
+    ui = { border = 'rounded' },
+    -- dev = { path = vim.g.projects_dir },
+    dev = {
+		path = "~/.ghq/github.com",
+	},
+    install = {
+        -- Do not automatically install on startup.
+        missing = false,
+    },
+    -- Don't bother me when tweaking plugins.
+    change_detection = { notify = false },
+    -- None of my plugins use luarocks so disable this.
+    rocks = {
+        enabled = false,
+    },
+    performance = {
+        rtp = {
+            -- Stuff I don't use.
+            disabled_plugins = {
+                'gzip',
+                'netrwPlugin',
+                'rplugin',
+                'tarPlugin',
+                'tohtml',
+                'tutor',
+                'zipPlugin',
+            },
+        },
+    },
 })
 
-require("config.lazy")
-
--- :delmarks is the command to delete marks.
--- ! specifies that all marks (both lowercase and uppercase) will be deleted.
--- :delmarks!
+-- Enable the new experimental command-line features.
+-- require('vim._extui').enable {}
