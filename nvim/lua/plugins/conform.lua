@@ -18,9 +18,12 @@ return {
                 markdown = { 'prettier' },
                 rust = { name = 'rust_analyzer', timeout_ms = 500, lsp_format = 'prefer' },
                 scss = { 'prettier' },
+                css = { 'prettier' },
                 sh = { 'shfmt' },
+                python = { 'black' },
                 typescript = { 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
                 typescriptreact = { 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
+                ['markdown.mdx'] = { 'prettier', 'markdownlint-cli2', 'markdown-toc' },
                 -- For filetypes without a formatter:
                 ['_'] = { 'trim_whitespace', 'trim_newlines' },
             },

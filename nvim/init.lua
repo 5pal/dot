@@ -1,7 +1,7 @@
 -- Global variables.
--- vim.g.projects_dir = vim.env.HOME .. '/Code'
--- vim.g.personal_projects_dir = vim.g.projects_dir .. '/Personal'
--- vim.g.work_projects_dir = '/Volumes/git'
+vim.g.projects_dir = vim.env.HOME .. '/Code'
+vim.g.personal_projects_dir = vim.g.projects_dir .. '/Personal'
+vim.g.work_projects_dir = '/Volumes/git'
 
 -- Set my colorscheme.
 vim.cmd.colorscheme 'miss-dracula'
@@ -36,10 +36,7 @@ require 'lsp'
 -- Configure plugins.
 require('lazy').setup(plugins, {
     ui = { border = 'rounded' },
-    -- dev = { path = vim.g.projects_dir },
-    dev = {
-		path = "~/.ghq/github.com",
-	},
+    dev = { path = vim.g.projects_dir },
     install = {
         -- Do not automatically install on startup.
         missing = false,
@@ -49,6 +46,15 @@ require('lazy').setup(plugins, {
     -- None of my plugins use luarocks so disable this.
     rocks = {
         enabled = false,
+    },
+    defaults = {
+        -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
+        -- If you know what you're doing, you can set this to `true` to have all your custom plugins lazy-loaded by default.
+        lazy = false,
+        -- It's recommended to leave version=false for now, since a lot the plugin that support versioning,
+        -- have outdated releases, which may break your Neovim install.
+        version = false, -- always use the latest git commit
+        -- version = "*", -- try installing the latest stable version for plugins that support semver
     },
     performance = {
         rtp = {
@@ -67,4 +73,4 @@ require('lazy').setup(plugins, {
 })
 
 -- Enable the new experimental command-line features.
--- require('vim._extui').enable {}
+require('vim._extui').enable {}
