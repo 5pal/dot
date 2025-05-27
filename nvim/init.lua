@@ -42,7 +42,7 @@ require('lazy').setup(plugins, {
         missing = false,
     },
     -- Don't bother me when tweaking plugins.
-    change_detection = { notify = false },
+    change_detection = { notify = true },
     -- None of my plugins use luarocks so disable this.
     rocks = {
         enabled = false,
