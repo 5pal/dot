@@ -56,6 +56,9 @@ require('lazy').setup(plugins, {
         version = false, -- always use the latest git commit
         -- version = "*", -- try installing the latest stable version for plugins that support semver
     },
+    checker = {
+        enabled = true,
+    },
     performance = {
         rtp = {
             -- Stuff I don't use.
