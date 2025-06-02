@@ -164,5 +164,6 @@ sketchybar --add bracket rightItems clock volume battery wifi \
   background.corner_radius=10 \
   background.height=30
 
+sketchybar --hotload on
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
