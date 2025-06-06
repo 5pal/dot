@@ -6,13 +6,15 @@ font-size = 20
 
 # Ghostty theme
 # theme = MaterialDesignColors
-theme = catppuccin-macchiato
+theme = Dracula
+background = 0E1419
 
 background-opacity = 1.0
 
 # adjust command line
 adjust-underline-position = 8
-adjust-underline-thickness = 1
+adjust-underline-thickness = 40%
+adjust-cursor-thickness = 150%
 
 # Font Family
 font-family = Berkeley Mono
@@ -25,8 +27,9 @@ font-family = Noto Sans CJK KR
 # font-family = Martian Mono
 # font-family = MonoLisa
 
-# Opacity of split windows
-unfocused-split-opacity = 0.97
+# Splits:
+unfocused-split-opacity = 0.4
+split-divider-color = A7DFEF
 
 # Shell integrations
 shell-integration = fish
@@ -34,10 +37,17 @@ quit-after-last-window-closed = true
 
 # Cursor style
 cursor-style-blink = true
+cursor-color = F8F8F2
+cursor-style-blink = false
+cursor-text = 000000
+shell-integration-features = no-cursor
 
 # Clipboard settings
 clipboard-read = allow
 clipboard-write = allow
+
+# Let me close stuff in peace:
+confirm-close-surface = false
 
 # Keybindings
 keybind = cmd+shift+space=toggle_quick_terminal
