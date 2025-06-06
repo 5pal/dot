@@ -9,7 +9,7 @@ customCommands:
     description: "commit with commitizen"
     context: "files"
     loadingText: "opening commitizen commit tool"
-    subprocess: true
+    output: terminal
 gui:
   mouseEvents: false
   showBottomLine: false
@@ -17,8 +17,6 @@ gui:
     activeBorderColor:
       - magenta
     selectedLineBgColor:
-      - black
-    selectedRangeBgColor:
       - black
     unstagedChangesColor:
       - yellow
