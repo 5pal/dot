@@ -6,7 +6,18 @@ git:
     pager: diff-so-fancy
 os:
   editPreset: nvim
+keybinding:
+  files:
+    commitChangesWithoutHook: <disabled>
 customCommands:
+  - key: w
+    prompts:
+      - type: input
+        title: Commit summary
+        initialValue: ''
+    description: Commit changes without pre-commit hook
+    command: git commit -n -m "{{index .PromptResponses 0}}"
+    context: files
   - key: "C"
     command: "git cz"
     description: "commit with commitizen"
