@@ -230,12 +230,20 @@ if.app-id = 'com.apple.finder'
 run = "move-node-to-workspace F"
 
 [[on-window-detected]]
+if.app-id = 'com.kakao.KakaoTalkMac'
+run = "move-node-to-workspace F"
+
+[[on-window-detected]]
 if.app-id = 'notion.id'
 run = "move-node-to-workspace N"
 
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = "move-node-to-workspace N"
+
+[[on-window-detected]]
+if.app-id = 'com.apple.mail'
+run = "move-node-to-workspace M"
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
