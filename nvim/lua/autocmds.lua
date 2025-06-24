@@ -1,7 +1,7 @@
 -- NOTE: Ordered alphabetically by group name.
 
 vim.api.nvim_create_autocmd('FileType', {
-    group = vim.api.nvim_create_augroup('mariasolos/big_file', { clear = true }),
+    group = vim.api.nvim_create_augroup('opal/big_file', { clear = true }),
     desc = 'Disable features in big files',
     pattern = 'bigfile',
     callback = function(args)
@@ -12,7 +12,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-    group = vim.api.nvim_create_augroup('mariasolos/close_with_q', { clear = true }),
+    group = vim.api.nvim_create_augroup('opal/close_with_q', { clear = true }),
     desc = 'Close with <q>',
     pattern = {
         'git',
@@ -27,7 +27,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.api.nvim_create_autocmd('VimEnter', {
-    group = vim.api.nvim_create_augroup('mariasolos/dotfiles_setup', { clear = true }),
+    group = vim.api.nvim_create_augroup('opal/dotfiles_setup', { clear = true }),
     desc = 'Special dotfiles setup',
     callback = function()
         local ok, inside_dotfiles = pcall(vim.startswith, vim.fn.getcwd(), vim.env.XDG_CONFIG_HOME)
@@ -42,7 +42,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
 })
 
 vim.api.nvim_create_autocmd('CmdwinEnter', {
-    group = vim.api.nvim_create_augroup('mariasolos/execute_cmd_and_stay', { clear = true }),
+    group = vim.api.nvim_create_augroup('opal/execute_cmd_and_stay', { clear = true }),
     desc = 'Execute command and stay in the command-line window',
     callback = function(args)
         vim.keymap.set({ 'n', 'i' }, '<S-CR>', '<cr>q:', { buffer = args.buf })
@@ -50,7 +50,7 @@ vim.api.nvim_create_autocmd('CmdwinEnter', {
 })
 
 vim.api.nvim_create_autocmd('BufReadPost', {
-    group = vim.api.nvim_create_augroup('mariasolos/last_location', { clear = true }),
+    group = vim.api.nvim_create_augroup('opal/last_location', { clear = true }),
     desc = 'Go to the last location when opening a buffer',
     callback = function(args)
         local mark = vim.api.nvim_buf_get_mark(args.buf, '"')
@@ -61,7 +61,7 @@ vim.api.nvim_create_autocmd('BufReadPost', {
     end,
 })
 
-local line_numbers_group = vim.api.nvim_create_augroup('mariasolos/toggle_line_numbers', {})
+local line_numbers_group = vim.api.nvim_create_augroup('opal/toggle_line_numbers', {})
 vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained', 'InsertLeave', 'CmdlineLeave', 'WinEnter' }, {
     group = line_numbers_group,
     desc = 'Toggle relative line numbers on',
@@ -89,7 +89,7 @@ vim.api.nvim_create_autocmd({ 'BufLeave', 'FocusLost', 'InsertEnter', 'CmdlineEn
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-    group = vim.api.nvim_create_augroup('mariasolos/treesitter_folding', { clear = true }),
+    group = vim.api.nvim_create_augroup('opal/treesitter_folding', { clear = true }),
     desc = 'Enable Treesitter folding',
     callback = function(args)
         local bufnr = args.buf
@@ -110,9 +110,9 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.api.nvim_create_autocmd('TextYankPost', {
-    group = vim.api.nvim_create_augroup('mariasolos/yank_highlight', { clear = true }),
+    group = vim.api.nvim_create_augroup('opal/yank_highlight', { clear = true }),
     desc = 'Highlight on yank',
     callback = function()
-        vim.h1.on_yank { higroup = 'Visual' }
+        vim.hl.on_yank { higroup = 'Visual' }
     end,
 })
