@@ -9,10 +9,10 @@ return {
             notify_on_error = false,
             formatters_by_ft = {
                 c = { name = 'clangd', timeout_ms = 500, lsp_format = 'prefer' },
-                javascript = { 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
-                javascriptreact = { 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
-                json = { 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
-                jsonc = { 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
+                javascript = { 'biome', 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
+                javascriptreact = { 'biome', 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
+                json = { 'biome', 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
+                jsonc = { 'biome', 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
                 less = { 'prettier' },
                 lua = { 'stylua' },
                 markdown = { 'prettier' },
@@ -21,8 +21,8 @@ return {
                 css = { 'prettier' },
                 sh = { 'shfmt' },
                 python = { 'black' },
-                typescript = { 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
-                typescriptreact = { 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
+                typescript = { 'biome', 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
+                typescriptreact = { 'biome', 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
                 ['markdown.mdx'] = { 'prettier', 'markdownlint-cli2', 'markdown-toc' },
                 -- For filetypes without a formatter:
                 ['_'] = { 'trim_whitespace', 'trim_newlines' },
@@ -50,6 +50,13 @@ return {
             formatters = {
                 -- Require a Prettier configuration file to format.
                 prettier = { require_cwd = true },
+                -- Biome formatter configuration
+                biome = {
+                    command = 'biome',
+                    args = { 'format', '--stdin-file-path', '$FILENAME' },
+                    stdin = true,
+                    require_cwd = true,
+                },
             },
         },
         init = function()
