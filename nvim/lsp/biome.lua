@@ -11,6 +11,7 @@ return {
         'json',
         'jsonc',
         'css',
+        'scss',
         'vue',
         'astro',
         'svelte',
