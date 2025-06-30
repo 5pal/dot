@@ -7,7 +7,7 @@ return {
     root_markers = { '.eslintrc', '.eslintrc.js', '.eslintrc.json', 'eslint.config.js', 'eslint.config.mjs' },
     -- Using roughly the same defaults as nvim-lspconfig: https://github.com/neovim/nvim-lspconfig/blob/d3ad666b7895f958d088cceb6f6c199672c404fe/lua/lspconfig/configs/eslint.lua#L70
     settings = {
-        validate = 'on',
+        validate = 'off',
         packageManager = nil,
         useESLintClass = false,
         experimental = { useFlatConfig = false },

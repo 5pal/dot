@@ -41,7 +41,6 @@ require('lazy').setup(plugins, {
         -- Do not automatically install on startup.
         missing = false,
     },
-    -- Don't bother me when tweaking plugins.
     change_detection = { notify = true },
     -- None of my plugins use luarocks so disable this.
     rocks = {
