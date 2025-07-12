@@ -154,10 +154,19 @@ return {
                                 height = 0.35,
                                 width = 0.3,
                             }
-                        elseif ui_opts.kind == 'lsp_message' then
-                            ui_opts.winopts = { height = 0.4, width = 0.4 }
+                        elseif ui_opts.kind == 'color_presentation' then
+                            ui_opts.winopts = {
+                                relative = 'cursor',
+                                height = 0.35,
+                                width = 0.3,
+                            }
                         else
-                            ui_opts.winopts = { height = 0.6, width = 0.5 }
+                            ui_opts.winopts = { height = 0.5, width = 0.4 }
+                        end
+
+                        -- Use the kind (if available) to set the previewer's title.
+                        if ui_opts.kind then
+                            ui_opts.winopts.title = string.format(' %s ', ui_opts.kind)
                         end
 
                         return ui_opts
