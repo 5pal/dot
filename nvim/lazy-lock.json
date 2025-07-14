@@ -1,7 +1,7 @@
 {
   "LuaSnip": { "branch": "master", "commit": "66b5c2707e624dcd2cd3605676c64a2efe47e9d1" },
   "SchemaStore.nvim": { "branch": "main", "commit": "36fb914c0defa2274207e670182253508e5569d5" },
-  "blink.cmp": { "branch": "main", "commit": "17e30f35af24545fc2cd8711a0788f49b44c28ff" },
+  "blink.cmp": { "branch": "main", "commit": "3536ce464e82843b00c76718d9bfe1994647d686" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
   "codecompanion.nvim": { "branch": "main", "commit": "28eab4386b04dc222de6c27349ea5ae0d1a92866" },
   "conform.nvim": { "branch": "master", "commit": "973f3cb73887d510321653044791d7937c7ec0fa" },
@@ -37,7 +37,7 @@
   "overseer.nvim": { "branch": "master", "commit": "fe7b2f9ba263e150ab36474dfc810217b8cf7400" },
   "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
   "quicker.nvim": { "branch": "master", "commit": "51d3926f183c2d98fbc237cc237ae0926839af3a" },
-  "tiny-code-action.nvim": { "branch": "main", "commit": "e074071e549f83d6ee1ae257dffc57fcb8c764b1" },
+  "tiny-code-action.nvim": { "branch": "main", "commit": "6cc625667294b956ac044dc4e95cdd8b451a3f8f" },
   "vim-highlighturl": { "branch": "master", "commit": "7179156ccc68168e7ef8f1eae28edf36911f5a3c" },
   "vim-sleuth": { "branch": "master", "commit": "be69bff86754b1aa5adcbb527d7fcd1635a84080" },
   "yanky.nvim": { "branch": "main", "commit": "04775cc6e10ef038c397c407bc17f00a2f52b378" }
