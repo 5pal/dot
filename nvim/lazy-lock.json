@@ -8,7 +8,7 @@
   "copilot.lua": { "branch": "master", "commit": "14bf786180b2ca4578915c56989b6d676dddc6f3" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "flash.nvim": { "branch": "main", "commit": "3c942666f115e2811e959eabbdd361a025db8b63" },
-  "fzf-lua": { "branch": "main", "commit": "07326bb95827f1f4b7d7aead5e8094d844588d08" },
+  "fzf-lua": { "branch": "main", "commit": "55a1b767e1b6b72e3fd73ee415ec93cba5f0b1d9" },
   "gitlinker.nvim": { "branch": "master", "commit": "cc59f732f3d043b626c8702cb725c82e54d35c25" },
   "gitsigns.nvim": { "branch": "main", "commit": "0cb5a7753d3c4b8e9cfdc9d88d9110cb8d4b1544" },
   "grug-far.nvim": { "branch": "main", "commit": "45981a9af7f4e666a3cdaedb1d21d2ab926727a2" },
