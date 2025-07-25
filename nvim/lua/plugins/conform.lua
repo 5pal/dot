@@ -23,6 +23,7 @@ return {
                 python = { 'black' },
                 typescript = { 'biome', 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
                 typescriptreact = { 'biome', 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
+                yaml = { 'prettier' },
                 ['markdown.mdx'] = { 'prettier', 'markdownlint-cli2', 'markdown-toc' },
                 -- For filetypes without a formatter:
                 ['_'] = { 'trim_whitespace', 'trim_newlines' },
