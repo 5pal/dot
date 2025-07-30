@@ -3,7 +3,7 @@
   "SchemaStore.nvim": { "branch": "main", "commit": "3cd1c7267282b4d89618674de36a6d866981347e" },
   "blink.cmp": { "branch": "main", "commit": "a0bcedefce8d74179d0f2401d9915eaaf16974ce" },
   "bufferline.nvim": { "branch": "main", "commit": "655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3" },
-  "codecompanion.nvim": { "branch": "main", "commit": "acfa69b6f712035dfc24c1aa2da3c8e5094e1699" },
+  "codecompanion.nvim": { "branch": "main", "commit": "bc861d6d7893c79fa3d7b570e8c924b83fb50523" },
   "conform.nvim": { "branch": "master", "commit": "973f3cb73887d510321653044791d7937c7ec0fa" },
   "copilot.lua": { "branch": "master", "commit": "55e43020dcd59c6da41cc773971380a003100844" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
