@@ -18,7 +18,7 @@ adjust-cursor-thickness = 150%
 
 # Font Family
 font-family = Berkeley Mono
-font-family-italic = "Cartograph CF"
+# font-family-italic = "Cartograph CF"
 font-family = Noto Sans CJK KR
 # font-family = Operator Mono Lig
 # font-family = Berkeley Mono Trial Regular
