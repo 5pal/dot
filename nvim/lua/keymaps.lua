@@ -57,3 +57,6 @@ end, { desc = 'Toggle floating terminal' })
 
 -- Mark management.
 vim.keymap.set('c', 'dm', 'delmarks', { desc = 'Delete marks' })
+
+-- Disable spacebar movement in normal mode.
+vim.keymap.set('n', '<Space>', '<Nop>')
