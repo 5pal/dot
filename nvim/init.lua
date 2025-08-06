@@ -75,4 +75,5 @@ require('lazy').setup(plugins, {
 })
 
 -- Enable the new experimental command-line features.
+vim.lsp.enable 'tsgo'
 require('vim._extui').enable {}
