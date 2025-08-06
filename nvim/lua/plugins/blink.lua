@@ -2,6 +2,7 @@
 return {
     {
         'saghen/blink.cmp',
+        version = '1.*',
         dependencies = 'LuaSnip',
         build = 'cargo +nightly build --release',
         event = 'InsertEnter',
