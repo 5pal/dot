@@ -1,4 +1,11 @@
 -- NOTE: Ordered alphabetically by group name.
+--
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { 'javascript', 'javascriptreact', 'javascript.jsx', 'typescript', 'typescriptreact', 'typescript.tsx' },
+    callback = function()
+        vim.lsp.enable 'tsgo'
+    end,
+})
 
 vim.api.nvim_create_autocmd('FileType', {
     group = vim.api.nvim_create_augroup('opal/big_file', { clear = true }),
