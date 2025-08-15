@@ -40,13 +40,14 @@ sketchybar --add item spacePaddingLeft left --set spacePaddingLeft padding_left=
 
 ##### Adding aeropsace layouts #####
 # Add the aerospace_workspace_change event we specified in aerospace.toml
-sketchybar --add event aerospace_workspace_change
+# sketchybar --add event aerospace_workspace_change
 
 # This only works for single monitor configs!
 for sid in $(aerospace list-workspaces --monitor 1); do
   #for sid in "${SPACE_IDS[@]}"; do
+  sketchybar --add event aerospace_workspace_change_"$sid"
   sketchybar --add item space.$sid left \
-    --subscribe space.$sid aerospace_workspace_change \
+    --subscribe space.$sid aerospace_workspace_change_"$sid" \
     --set space.$sid \
     drawing=off \
     background.corner_radius=5 \
