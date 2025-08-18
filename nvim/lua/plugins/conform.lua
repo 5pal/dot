@@ -9,6 +9,7 @@ return {
             notify_on_error = false,
             formatters_by_ft = {
                 c = { name = 'clangd', timeout_ms = 500, lsp_format = 'prefer' },
+                go = { name = 'gopls', timeout_ms = 500, lsp_format = 'prefer' },
                 javascript = { 'biome', 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
                 javascriptreact = { 'biome', 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
                 json = { 'biome', 'prettier', name = 'dprint', timeout_ms = 500, lsp_format = 'fallback' },
@@ -17,7 +18,7 @@ return {
                 lua = { 'stylua' },
                 markdown = { 'prettier' },
                 rust = { name = 'rust_analyzer', timeout_ms = 500, lsp_format = 'prefer' },
-                scss = { 'biome', 'prettier' },
+                scss = { 'prettier' },
                 css = { 'biome', 'prettier' },
                 sh = { 'shfmt' },
                 python = { 'black' },
