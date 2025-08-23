@@ -224,9 +224,9 @@ run = 'layout floating'
 if.app-id = 'com.mitchellh.ghostty'
 run = "move-node-to-workspace T"
 
-[[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = "move-node-to-workspace B"
+# [[on-window-detected]]
+# if.app-id = 'com.google.Chrome'
+# run = "move-node-to-workspace B"
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
