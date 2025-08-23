@@ -1,6 +1,12 @@
 ### START-OF-ICON-MAP
 function icon_map() {
   case "$1" in
+  "Ghostty")
+    icon_result=":ghostty:"
+    ;;
+  "Dia")
+    icon_result=":dia:"
+    ;;
   "Live")
     icon_result=":ableton:"
     ;;
