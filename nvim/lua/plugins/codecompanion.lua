@@ -24,6 +24,10 @@ return {
                                 modes = { n = '<leader>ay' },
                                 description = 'Accept the suggested change',
                             },
+                            always_accept = {
+                                modes = { n = '<leader>aY' },
+                                description = 'Accept and enable auto mode',
+                            },
                             reject_change = {
                                 modes = { n = '<leader>an' },
                                 description = 'Reject the suggested change',
@@ -32,7 +36,13 @@ return {
                     },
                 },
                 display = {
-                    diff = { opts = diff_opts },
+                    diff = {
+                        opts = diff_opts,
+                        diff_signs = {
+                            -- Disable signs for changes.
+                            signs = { text = '' },
+                        },
+                    },
                 },
             }
         end,
