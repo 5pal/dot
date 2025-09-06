@@ -16,7 +16,9 @@ return {
         'astro',
         'svelte',
     },
-    root_markers = { 'biome.json', 'biome.jsonc' },
+    root_dir = function(fname)
+        return vim.fs.root(fname, { 'biome.json', 'biome.jsonc' })
+    end,
     single_file_support = false,
     settings = {},
 }
