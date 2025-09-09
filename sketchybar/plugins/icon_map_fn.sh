@@ -476,7 +476,7 @@ function icon_map() {
     icon_result=":parsec:"
     ;;
   "Preview" | "预览" | "Skim" | "zathura" | "Aperçu")
-    icon_result=":pdf:"
+    icon_result=":preview:"
     ;;
   "PDF Expert")
     icon_result=":pdf_expert:"
