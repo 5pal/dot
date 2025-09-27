@@ -86,7 +86,7 @@ for sid in $(aerospace list-workspaces --monitor 1 --empty no); do
   sketchybar --set space.$sid label="$icon_strip"
 done
 
-sketchybar --add item spacePaddingRight left --set spacePaddingRight padding_left=-18
+sketchybar --add item spacePaddingRight left --set spacePaddingRight padding_left=-5
 
 sketchybar --add item space_separator q \
   --set space_separator icon="" \
@@ -111,41 +111,41 @@ sketchybar --add item space_separator q \
 # volume is registered. More info about the event system can be found here:
 # https://felixkratz.github.io/SketchyBar/config/events
 
-sketchybar --add item clock right \
-  --set clock update_freq=10 script="$PLUGIN_DIR/clock.sh" \
-  \
-  --add item volume right \
-  --set volume script="$PLUGIN_DIR/volume.sh" \
-  --subscribe volume volume_change \
-  \
-  --add item battery right \
-  --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
-  --subscribe battery system_woke power_source_change \
-  \
-  --add item wifi right \
-  --set wifi script="$PLUGIN_DIR/wifi.sh" label.font="Berkeley Mono:Regular:12.0" label.y_offset=-3 \
-  popup.background.color=$BACKGROUND \
-  popup.background.border_width=2 \
-  popup.background.border_color=$TEXT_GREY \
-  popup.background.corner_radius=10 \
-  popup.y_offset=5 \
-  --subscribe wifi wifi_change mouse.entered mouse.exited \
-  \
-  --add item wifi.priv.addr popup.wifi \
-  --set wifi.priv.addr icon="󰌗" \
-  \
-  --add item wifi.pub.addr popup.wifi \
-  --set wifi.pub.addr icon="󰖟" \
-  \
-  --add item swap e \
-  --set swap update_freq=20 script="$PLUGIN_DIR/memswap.sh" \
-  icon="" \
-  label.font="Hack Nerd Font:Italic:13.0" \
-  icon.padding_left=8 \
-  label.padding_right=8 \
-  click_script="open -a 'Activity Monitor'" \
-  \
-  --add alias Stats e --set Stats label.padding_left=0 label.padding_right=0 icon.padding_left=0 icon.padding_right=0 alias.update_freq=3
+# sketchybar --add item clock right \
+#   --set clock update_freq=10 script="$PLUGIN_DIR/clock.sh" \
+#   \
+#   --add item volume right \
+#   --set volume script="$PLUGIN_DIR/volume.sh" \
+#   --subscribe volume volume_change \
+#   \
+#   --add item battery right \
+#   --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+#   --subscribe battery system_woke power_source_change \
+#   \
+#   --add item wifi right \
+#   --set wifi script="$PLUGIN_DIR/wifi.sh" label.font="Berkeley Mono:Regular:12.0" label.y_offset=-3 \
+#   popup.background.color=$BACKGROUND \
+#   popup.background.border_width=2 \
+#   popup.background.border_color=$TEXT_GREY \
+#   popup.background.corner_radius=10 \
+#   popup.y_offset=5 \
+#   --subscribe wifi wifi_change mouse.entered mouse.exited \
+#   \
+#   --add item wifi.priv.addr popup.wifi \
+#   --set wifi.priv.addr icon="󰌗" \
+#   \
+#   --add item wifi.pub.addr popup.wifi \
+#   --set wifi.pub.addr icon="󰖟" \
+#   \
+#   --add item swap e \
+#   --set swap update_freq=20 script="$PLUGIN_DIR/memswap.sh" \
+#   icon="" \
+#   label.font="Hack Nerd Font:Italic:13.0" \
+#   icon.padding_left=8 \
+#   label.padding_right=8 \
+#   click_script="open -a 'Activity Monitor'" \
+#   \
+#   --add alias Stats e --set Stats label.padding_left=0 label.padding_right=0 icon.padding_left=0 icon.padding_right=0 alias.update_freq=3
 
 #### Groups !!! ####
 sketchybar --add bracket spaces '/space\..*/' spacePaddingLeft spacePaddingRight \

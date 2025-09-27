@@ -19,27 +19,6 @@ local function on_attach(client, bufnr)
         vim.keymap.set(mode, lhs, rhs, { buffer = bufnr, desc = desc })
     end
 
-    require('lightbulb').attach_lightbulb(bufnr, client.id)
-
-    -- Don't check for capabilities here to allow dynamic registration of the request.
-    vim.lsp.document_color.enable(true, bufnr)
-
-    if client:supports_method(methods.textDocument_documentColor) then
-        keymap('grc', function()
-            vim.lsp.document_color.color_presentation()
-        end, 'vim.lsp.document_color.color_presentation()', { 'n', 'x' })
-    end
-
-    keymap('gra', function()
-        require('tiny-code-action').code_action()
-    end, 'vim.lsp.buf.code_action()', { 'n', 'x' })
-
-    keymap('grr', '<cmd>FzfLua lsp_references<cr>', 'vim.lsp.buf.references()')
-
-    keymap('gy', '<cmd>FzfLua lsp_typedefs<cr>', 'Go to type definition')
-
-    keymap('<leader>fs', '<cmd>FzfLua lsp_document_symbols<cr>', 'Document symbols')
-
     keymap('[d', function()
         vim.diagnostic.jump { count = -1 }
     end, 'Previous diagnostic')
@@ -52,6 +31,34 @@ local function on_attach(client, bufnr)
     keymap(']e', function()
         vim.diagnostic.jump { count = 1, severity = vim.diagnostic.severity.ERROR }
     end, 'Next error')
+
+    if client:supports_method(methods.textDocument_codeAction) then
+        require('lightbulb').attach_lightbulb(bufnr, client)
+
+        keymap('gra', function()
+            require('tiny-code-action').code_action()
+        end, 'vim.lsp.buf.code_action()', { 'n', 'x' })
+    end
+
+    -- Don't check for the capability here to allow dynamic registration of the request.
+    vim.lsp.document_color.enable(true, bufnr)
+    if client:supports_method(methods.textDocument_documentColor) then
+        keymap('grc', function()
+            vim.lsp.document_color.color_presentation()
+        end, 'vim.lsp.document_color.color_presentation()', { 'n', 'x' })
+    end
+
+    if client:supports_method(methods.textDocument_references) then
+        keymap('grr', '<cmd>FzfLua lsp_references<cr>', 'vim.lsp.buf.references()')
+    end
+
+    if client:supports_method(methods.textDocument_typeDefinition) then
+        keymap('gy', '<cmd>FzfLua lsp_typedefs<cr>', 'Go to type definition')
+    end
+
+    if client:supports_method(methods.textDocument_documentSymbol) then
+        keymap('<leader>fs', '<cmd>FzfLua lsp_document_symbols<cr>', 'Document symbols')
+    end
 
     if client:supports_method(methods.textDocument_definition) then
         keymap('gd', function()
@@ -125,15 +132,15 @@ local function on_attach(client, bufnr)
         })
     end
 
-    -- Add "Fix all" command for ESLint.
-    if client.name == 'eslint' then
-        vim.keymap.set('n', '<leader>ce', function()
+    -- Add "Fix all" command for linters.
+    if client.name == 'eslint' or client.name == 'stylelint_lsp' then
+        vim.keymap.set('n', '<leader>cl', function()
             if not client then
                 return
             end
 
             client:request(vim.lsp.protocol.Methods.workspace_executeCommand, {
-                command = 'eslint.applyAllFixes',
+                command = client.name == 'eslint' and 'eslint.applyAllFixes' or 'stylelint.applyAutoFixes',
                 arguments = {
                     {
                         uri = vim.uri_from_bufnr(bufnr),
@@ -141,7 +148,10 @@ local function on_attach(client, bufnr)
                     },
                 },
             }, nil, bufnr)
-        end, { desc = 'Fix all ESLint errors', buffer = bufnr })
+        end, {
+            desc = string.format('Fix all %s errors', client.name == 'eslint' and 'ESLint' or 'Stylelint'),
+            buffer = bufnr,
+        })
     end
 end
 
