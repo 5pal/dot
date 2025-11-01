@@ -32,6 +32,7 @@ return {
                     if vim.startswith(mode, 'n') then
                         require('fzf-lua').lgrep_curbuf(opts)
                     else
+                        opts.query = table.concat(vim.fn.getregion(vim.fn.getpos '.', vim.fn.getpos 'v'), '\n')
                         require('fzf-lua').blines(opts)
                     end
                 end,
@@ -102,6 +103,7 @@ return {
                     -- Search in hidden files by default.
                     hidden = true,
                     header_prefix = icons.misc.search .. ' ',
+                    rg_opts = '--column --line-number --no-heading --color=always --smart-case --max-columns=4096 -g "!.git" -e',
                     rg_glob_fn = function(query, opts)
                         local regex, flags = query:match(string.format('^(.*)%s(.*)$', opts.glob_separator))
                         -- Return the original query if there's no separator.
