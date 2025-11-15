@@ -22,7 +22,20 @@ vim.api.nvim_create_autocmd('FileType', {
         'scratch',
     },
     callback = function(args)
-        vim.keymap.set('n', 'q', '<cmd>quit<cr>', { buffer = args.buf })
+        if args.match ~= 'help' or not vim.bo[args.buf].modifiable then
+            vim.keymap.set('n', 'q', '<cmd>quit<cr>', { buffer = args.buf })
+        end
+    end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+    group = vim.api.nvim_create_augroup('opal/disable_help_conceal', { clear = true }),
+    desc = 'Disable conceal in modifiable help files',
+    pattern = 'help',
+    callback = function(args)
+        if vim.bo[args.buf].modifiable then
+            vim.wo.conceallevel = 0
+        end
     end,
 })
 

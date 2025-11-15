@@ -1,11 +1,23 @@
 notARepository: 'quit'
 git:
   overrideGpg: true
-  paging:
-    colorArg: always
-    pager: diff-so-fancy
+  pagers:
+    - colorArg: always
+      pager: diff-so-fancy
 os:
   editPreset: nvim
+gui:
+  showBottomLine: false
+  theme:
+    activeBorderColor:
+      - magenta
+    selectedLineBgColor:
+      - black
+    unstagedChangesColor:
+      - yellow
+  border: rounded
+  nerdFontsVersion: '3'
+  skipDiscardChangeWarning: true
 keybinding:
   files:
     commitChangesWithoutHook: <disabled>
@@ -18,21 +30,3 @@ customCommands:
     description: Commit changes without pre-commit hook
     command: git commit -n -m '{{index .PromptResponses 0}}'
     context: files
-  - key: "C"
-    command: "git cz"
-    description: "commit with commitizen"
-    context: "files"
-    loadingText: "opening commitizen commit tool"
-    output: terminal
-gui:
-  mouseEvents: false
-  showBottomLine: false
-  theme:
-    activeBorderColor:
-      - magenta
-    selectedLineBgColor:
-      - black
-    unstagedChangesColor:
-      - yellow
-  border: rounded
-  nerdFontsVersion: '3'
