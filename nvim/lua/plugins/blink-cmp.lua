@@ -23,7 +23,13 @@ return {
                     max_items = 10,
                 },
                 documentation = { auto_show = true },
-                menu = { scrollbar = false },
+                menu = {
+                    scrollbar = false,
+                    draw = {
+                        gap = 2,
+                        columns = { { 'kind_icon', 'kind', gap = 1 }, { 'label', 'label_description', gap = 1 } },
+                    },
+                },
             },
             snippets = { preset = 'luasnip' },
             -- Disable command line completion:
