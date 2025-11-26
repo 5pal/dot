@@ -161,6 +161,14 @@ end
 
 -- Diagnostic configuration.
 vim.diagnostic.config {
+    status = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = diagnostic_icons.ERROR,
+            [vim.diagnostic.severity.WARN] = diagnostic_icons.WARN,
+            [vim.diagnostic.severity.INFO] = diagnostic_icons.INFO,
+            [vim.diagnostic.severity.HINT] = diagnostic_icons.HINT,
+        },
+    },
     virtual_text = {
         prefix = '',
         spacing = 2,
@@ -196,8 +204,7 @@ vim.diagnostic.config {
 }
 
 -- Override the virtual text diagnostic handler so that the most severe diagnostic is shown first.
-local show_handler = vim.diagnostic.handlers.virtual_text.show
-assert(show_handler)
+local show_handler = assert(vim.diagnostic.handlers.virtual_text.show)
 local hide_handler = vim.diagnostic.handlers.virtual_text.hide
 vim.diagnostic.handlers.virtual_text = {
     show = function(ns, bufnr, diagnostics, opts)
@@ -269,5 +276,12 @@ vim.api.nvim_create_autocmd({ 'BufReadPre', 'BufNewFile' }, {
         vim.lsp.enable(servers)
     end,
 })
+
+-- HACK: Override buf_request to ignore notifications from LSP servers that don't implement a method.
+local buf_request = vim.lsp.buf_request
+---@diagnostic disable-next-line: duplicate-set-field
+vim.lsp.buf_request = function(bufnr, method, params, handler)
+    return buf_request(bufnr, method, params, handler, function() end)
+end
 
 return M
