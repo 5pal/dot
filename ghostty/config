@@ -18,9 +18,10 @@ adjust-cursor-thickness = 150%
 
 # Font Family
 font-family = Berkeley Mono
+font-family = Noto Sans CJK KR
 # font-family-italic = "Cartograph CF"
-font-family = Bitstream Vera Sans Mono
-# font-family = Noto Sans CJK KR
+# font-family = Bitstream Vera Sans Mono
+# font-family = Spoqa Han Sans Neo
 # font-family = Operator Mono Lig
 # font-family = Berkeley Mono Trial Regular
 # font-family = JetBrainsMono Nerd Font Mono

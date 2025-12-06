@@ -1,4 +1,4 @@
--- My own version of Dracula.
+-- MariaSolOs version of Dracula.
 
 -- Reset highlighting.
 vim.cmd.highlight 'clear'
@@ -373,9 +373,6 @@ local groups = vim.tbl_extend('error', statusline_groups, {
     GrugFarResultsChangeIndicator = { link = 'Changed' },
     GrugFarResultsRemoveIndicator = { link = 'Removed' },
     GrugFarResultsAddIndicator = { link = 'Added' },
-
-    -- Overseeer.
-    OverseerComponent = { link = '@keyword' },
 
     -- Links.
     HighlightUrl = { underline = true, fg = colors.neon_cyan, sp = colors.neon_cyan },

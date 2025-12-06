@@ -187,11 +187,10 @@ function M.filetype_component()
     local special_icons = {
         DiffviewFileHistory = { icons.misc.git, 'Number' },
         DiffviewFiles = { icons.misc.git, 'Number' },
-        OverseerForm = { '󰦬', 'Special' },
-        OverseerList = { '󰦬', 'Special' },
         ['ccc-ui'] = { '', 'Comment' },
         ['dap-view'] = { icons.misc.bug, 'DapUIRestart' },
         ['grug-far'] = { icons.misc.search, 'Constant' },
+        codecompanion = { icons.misc.robot, 'Conditional' },
         fzf = { '', 'Special' },
         gitcommit = { icons.misc.git, 'Number' },
         gitrebase = { icons.misc.git, 'Number' },
