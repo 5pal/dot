@@ -211,6 +211,11 @@ return {
                         -- Use the kind (if available) to set the previewer's title.
                         if ui_opts.kind then
                             ui_opts.winopts.title = string.format(' %s ', ui_opts.kind)
+
+                            -- Ensure that there's a space at the end of the prompt.
+                            if ui_opts.prompt and not vim.endswith(ui_opts.prompt, ' ') then
+                                ui_opts.prompt = ui_opts.prompt .. ' '
+                            end
                         end
 
                         return ui_opts
